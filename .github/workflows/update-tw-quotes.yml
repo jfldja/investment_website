@@ -31,7 +31,18 @@ jobs:
           git add data/tw-quotes.json
           if git diff --cached --quiet; then
             echo "no changes"
-          else
-            git commit -m "chore: update TW quotes"
-            git push
+            exit 0
           fi
+          git commit -m "chore: update TW quotes"
+          # 執行期間遠端可能有新 commit：先 rebase 再 push，最多重試 3 次；
+          # 若 tw-quotes.json 發生衝突，以這次新抓的資料為準（rebase 時 theirs = 正在重放的機器人 commit）
+          for i in 1 2 3; do
+            if git pull --rebase -X theirs origin "${{ github.ref_name }}" && git push origin "HEAD:${{ github.ref_name }}"; then
+              exit 0
+            fi
+            echo "push 失敗，第 $i 次重試..."
+            git rebase --abort 2>/dev/null || true
+            sleep 5
+          done
+          echo "::error::連續 3 次 push 失敗"
+          exit 1
