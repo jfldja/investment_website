@@ -1,0 +1,976 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>政經趨勢投資看板 — 自定義標的原型</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700&display=swap');
+    body { font-family: 'Noto Sans TC', sans-serif; }
+    .sent-positive { background-color: #dcfce7; color: #166534; border: 1px solid #bbf7d0; }
+    .sent-negative { background-color: #fee2e2; color: #991b1b; border: 1px solid #fecaca; }
+    .sent-neutral  { background-color: #f3f4f6; color: #374151; border: 1px solid #e5e7eb; }
+    .trend-up    { color: #16a34a; }
+    .trend-down  { color: #dc2626; }
+    .trend-flat  { color: #64748b; }
+    .market-card { transition: transform 0.15s, box-shadow 0.15s; cursor: pointer; }
+    .market-card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
+    .spark-canvas { width: 100%; height: 28px; display: block; margin-top: 8px; }
+    .remove-badge { opacity: 0; transition: opacity 0.2s; }
+    .market-card.edit-mode:hover .remove-badge { opacity: 1; }
+    .modal-overlay { backdrop-filter: blur(4px); }
+    .detail-panel-enter { animation: slideDown 0.25s ease-out; }
+    @keyframes slideDown {
+      from { opacity: 0; transform: translateY(-8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body class="bg-slate-100 text-slate-900">
+
+  <!-- 導覽列 -->
+  <nav class="bg-white border-b border-slate-200 sticky top-0 z-50 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 h-14 flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <div class="w-8 h-8 bg-indigo-600 rounded-lg flex items-center justify-center text-white font-bold">T</div>
+        <span class="font-bold text-xl tracking-tight">政經趨勢<span class="text-indigo-600">投資看板</span></span>
+      </div>
+      <div class="flex items-center gap-4">
+        <div class="hidden md:flex items-center gap-2 text-sm text-slate-600">
+          <span class="flex items-center gap-1"><i class="fa-solid fa-clock text-xs text-indigo-500"></i> 更新於 <span id="lastUpdated">--:--</span></span>
+          <span id="loginStatus" class="px-2 py-0.5 rounded-full bg-slate-100 text-slate-600 text-xs border border-slate-200">訪客模式</span>
+        </div>
+        <button id="loginBtn" 
+                class="bg-slate-900 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-slate-800 transition">
+          登入
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="max-w-7xl mx-auto px-4 py-8 space-y-8">
+
+    <!-- 第一排：市場情緒 + 自定義標的 -->
+    <section class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+      <div class="lg:col-span-4 bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
+        <div class="flex items-start justify-between mb-4">
+          <div>
+            <p class="text-sm text-slate-500 font-medium">市場情緒溫度</p>
+            <h2 class="text-4xl font-bold text-slate-900">68 <span class="text-xl font-normal text-slate-500">/ 100</span></h2>
+          </div>
+          <div class="w-16 h-16 bg-indigo-50 rounded-full flex items-center justify-center text-indigo-600 text-2xl font-bold">
+            🌤️
+          </div>
+        </div>
+        <div class="flex items-end gap-2 mb-4">
+          <span class="text-2xl font-bold trend-up">+12</span>
+          <span class="text-xs text-slate-400 self-end">vs. 昨天</span>
+        </div>
+        <div class="grid grid-cols-3 gap-4 text-center border-t border-slate-100 pt-4">
+          <div>
+            <div class="text-xs text-slate-400 uppercase tracking-wider">多頭</div>
+            <div class="text-lg font-bold text-slate-900">55%</div>
+          </div>
+          <div>
+            <div class="text-xs text-slate-400 uppercase tracking-wider">空頭</div>
+            <div class="text-lg font-bold text-slate-900">30%</div>
+          </div>
+          <div>
+            <div class="text-xs text-slate-400 uppercase tracking-wider">觀望</div>
+            <div class="text-lg font-bold text-slate-900">15%</div>
+          </div>
+        </div>
+        <div class="mt-4 h-1 w-full bg-slate-200 rounded-full overflow-hidden">
+          <div class="h-full bg-indigo-500" style="width: 68%"></div>
+        </div>
+      </div>
+
+      <div class="lg:col-span-8">
+        <div class="flex items-center justify-between mb-4">
+          <div>
+            <h2 class="text-lg font-bold text-slate-800">我的投資標的</h2>
+            <p class="text-xs text-slate-500">登入後可自行新增/移除，最多六項</p>
+            <p id="dataStatus" class="text-xs mt-0.5 text-slate-400"></p>
+          </div>
+          <button id="editBtn" onclick="handleEditClick()" 
+                  class="px-3 py-1.5 rounded-lg border border-slate-200 text-sm font-medium text-slate-700 hover:bg-slate-50 transition disabled:opacity-50 disabled:cursor-not-allowed" disabled>
+            編輯
+          </button>
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-3" id="watchlistGrid"></div>
+
+        <div id="emptyState" class="hidden mt-8 text-center">
+          <p class="text-slate-400 text-sm">尚未釘選任何標的，請點擊「編輯」新增。</p>
+        </div>
+
+        <div id="assetDetailPanel" class="hidden mt-6 bg-white rounded-2xl border border-slate-200 shadow-sm p-6 detail-panel-enter"></div>
+      </div>
+    </section>
+
+    <!-- 其餘區塊 -->
+    <section class="grid grid-cols-1 lg:grid-cols-4 gap-6">
+      <div class="lg:col-span-1">
+        <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-5 flex flex-col h-full">
+          <h3 class="font-bold text-slate-800 mb-4 flex items-center gap-2">
+            <i class="fa-solid fa-fire text-orange-500"></i> 熱門主題
+          </h3>
+          <div class="space-y-3" id="topicList"></div>
+          <div class="mt-5 pt-4 border-t border-slate-100 text-xs text-slate-500 text-center">熱度 = 新聞量 × 情感強度</div>
+        </div>
+      </div>
+      <div class="lg:col-span-2">
+        <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden flex flex-col h-full">
+          <div class="p-5 border-b border-slate-100 flex items-center justify-between">
+            <h3 class="font-bold text-slate-800">即時新聞情感流</h3>
+            <div class="flex gap-2">
+              <button data-news-filter="all" onclick="filterNews('all')" class="px-3 py-1 rounded bg-indigo-600 text-white text-xs font-medium">全部</button>
+              <button data-news-filter="positive" onclick="filterNews('positive')" class="px-3 py-1 rounded border border-slate-200 text-xs font-medium text-slate-600 hover:bg-slate-50">正面</button>
+              <button data-news-filter="negative" onclick="filterNews('negative')" class="px-3 py-1 rounded border border-slate-200 text-xs font-medium text-slate-600 hover:bg-slate-50">負面</button>
+            </div>
+          </div>
+          <div class="p-4 overflow-y-auto max-h-[600px]" id="newsFeed"></div>
+        </div>
+      </div>
+      <div class="lg:col-span-1">
+        <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-5">
+          <h3 class="font-bold text-slate-800 mb-4 flex items-center gap-2">
+            <i class="fa-solid fa-bell text-red-500"></i> 異常訊號預警
+          </h3>
+          <div class="space-y-4" id="alertList"></div>
+          <div class="mt-6 pt-4 border-t border-slate-100">
+            <p class="text-xs text-slate-500">這是示範資料。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer class="border-t border-slate-200 pt-8 text-xs text-slate-400 text-center">
+      <p>⚠️ 本原型僅供功能構思與 UI 討論，所有資料皆為假資料，不構成任何投資建議。</p>
+    </footer>
+  </div>
+
+  <!-- Google 登入彈窗 -->
+  <div id="loginModal" class="fixed inset-0 z-50 hidden">
+    <div class="modal-overlay absolute inset-0 bg-black/40 transition-opacity duration-300 opacity-0" onclick="closeLoginModal()"></div>
+    <div class="relative bg-white w-full max-w-md rounded-2xl shadow-xl mx-4 mt-20 p-6 transition-opacity duration-300 opacity-0 scale-95">
+      <div class="flex justify-between items-center mb-6">
+        <h3 class="text-lg font-bold text-slate-800">登入政經趨勢投資看板</h3>
+        <button onclick="closeLoginModal()" class="text-slate-400 hover:text-slate-600" aria-label="關閉登入視窗"><i class="fa-solid fa-xmark text-xl"></i></button>
+      </div>
+      <p class="text-sm text-slate-600 mb-4">使用 Google 帳號登入，將你的自選標的儲存在個人帳戶中，換裝置也能同步。</p>
+      <button type="button" onclick="signInWithGoogle()" class="w-full flex items-center justify-center gap-3 py-3 px-4 border border-slate-300 rounded-xl font-medium text-slate-700 hover:bg-slate-50 transition">
+        <svg width="20" height="20" viewBox="0 0 48 48" aria-hidden="true"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.76 7.18l7.73 6C44.42 37.99 46.98 31.82 46.98 24.55z"/><path fill="#FBBC05" d="M10.53 28.59A14.4 14.4 0 0 1 9.75 24c0-1.59.27-3.13.76-4.59l-7.98-6.19A23.9 23.9 0 0 0 0 24c0 3.87.93 7.52 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.91-5.8l-7.73-6c-2.14 1.44-4.89 2.3-8.18 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
+        使用 Google 帳號登入
+      </button>
+      <p id="authMessage" class="text-sm text-rose-600 mt-3 hidden" role="alert"></p>
+      <p class="text-xs text-slate-400 mt-5">首次使用前，網站管理者需先設定 Firebase Authentication 與 Cloud Firestore。</p>
+    </div>
+  </div>
+
+  <!-- 編輯彈窗 -->
+  <div id="editModal" class="fixed inset-0 z-50 hidden items-start justify-center overflow-y-auto p-4 sm:p-6">
+    <div class="modal-overlay absolute inset-0 bg-black/40" onclick="closeEdit()"></div>
+    <div class="relative z-10 bg-white w-full max-w-2xl rounded-2xl shadow-xl mx-auto my-6 sm:my-10 p-5 sm:p-6 max-h-[calc(100vh-3rem)] overflow-y-auto">
+      <div class="flex justify-between items-center mb-6">
+        <h3 class="text-lg font-bold text-slate-800">編輯我的標的</h3>
+        <button onclick="closeEdit()" class="text-slate-400 hover:text-slate-600"><i class="fa-solid fa-xmark text-xl"></i></button>
+      </div>
+      <p class="text-sm text-slate-500 mb-6">最多可釘選 <span class="font-semibold">6</span> 個標的</p>
+      <div class="grid grid-cols-2 gap-8">
+        <div>
+          <h4 class="font-semibold text-slate-700 mb-3 flex items-center gap-2">
+            <span class="text-indigo-600"><i class="fa-solid fa-thumbtack"></i></span> 目前釘選
+          </h4>
+          <div id="currentList" class="space-y-2"></div>
+        </div>
+        <div>
+          <h4 class="font-semibold text-slate-700 mb-3 flex items-center gap-2">
+            <span class="text-slate-500"><i class="fa-solid fa-plus-circle"></i></span> 可新增標的
+          </h4>
+          <div class="relative mb-3">
+            <i class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-sm"></i>
+            <input id="assetSearchInput" type="search" oninput="searchAddableAssets(this.value)" placeholder="搜尋標的名稱…" aria-label="搜尋可新增標的"
+              class="w-full rounded-lg border border-slate-200 bg-white py-2 pl-9 pr-3 text-sm text-slate-700 outline-none transition focus:border-indigo-400 focus:ring-2 focus:ring-indigo-100" />
+          </div>
+          <div id="candidateList" class="space-y-2"></div>
+        </div>
+      </div>
+      <div class="mt-8 flex justify-end gap-3">
+        <button onclick="closeEdit()" class="px-4 py-2 text-slate-600 border border-slate-200 rounded-lg hover:bg-slate-50">取消</button>
+        <button onclick="saveEdit()" class="px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700">儲存並關閉</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    /* ==================== Firebase 設定 ====================
+       已填入此專案的 Firebase Web App 設定。若複製到其他 Firebase 專案，請替換成該專案的設定。
+       不要把服務帳戶私密金鑰放在前端。資料安全由 Firestore Rules 保護。
+    */
+    const firebaseConfig = {
+      apiKey: "AIzaSyDnmQO7Vsmte_pgU-kp1-Y7Kw8vLiyFBkw",
+      authDomain: "investment-website-92aa0.firebaseapp.com",
+      projectId: "investment-website-92aa0",
+      storageBucket: "investment-website-92aa0.firebasestorage.app",
+      messagingSenderId: "19576047158",
+      appId: "1:19576047158:web:eba1a136ae9385c8137a97",
+      measurementId: "G-DX1WQJQ94L"
+    };
+    const firebaseConfigured = Object.values(firebaseConfig).every(value =>
+      typeof value === 'string' && value.length > 0 && !value.startsWith('YOUR_')
+    );
+    let firebaseApp = null;
+    let auth = null;
+    let db = null;
+    let currentUser = null;
+    let watchlistSaveQueue = Promise.resolve();
+
+    if (firebaseConfigured) {
+      firebaseApp = firebase.initializeApp(firebaseConfig);
+      auth = firebase.auth();
+      db = firebase.firestore();
+      auth.setPersistence(firebase.auth.Auth.Persistence.LOCAL).catch(error => console.error('設定登入持續性失敗', error));
+    }
+
+    /* ==================== 標的清單 ====================
+       td    = Twelve Data 的代號（免費方案僅支援美股/ETF、外匯、加密貨幣）
+       label = 卡片上顯示的資料來源說明（ETF 代理者會明確標示，避免被誤認為指數點位）
+       tw    = 台股資料的 key（對應 data/tw-quotes.json 的 series）
+       兩者都沒有的標的（日經225）目前沒有免費來源，維持模擬資料並標示「模擬」。
+    */
+    const liveAsset = (id, name, td, label) => ({
+      id, name, td, label, status: 'loading',
+      price: '—', change: '', changePct: '', color: 'trend-flat', spark: [], dates: []
+    });
+    // 台股資料由 GitHub Actions 每日盤後抓取，存成 data/tw-quotes.json（見 scripts/fetch-tw-quotes.mjs）
+    const twAsset = (id, name, label) => ({ ...liveAsset(id, name, null, label), tw: id });
+    const allAssets = [
+      twAsset('twii', '加權指數', '台灣證交所 · 收盤'),
+      liveAsset('nasdaq', '納斯達克', 'QQQ', 'QQQ ETF · USD'),
+      liveAsset('btc', '比特幣', 'BTC/USD', 'BTC/USD'),
+      liveAsset('gold', '黃金', 'XAU/USD', 'XAU/USD 現貨 · USD/盎司'),
+      liveAsset('oil', 'WTI 原油', 'USO', 'USO ETF · USD'),
+      twAsset('tsmc', '台積電', '2330 · 台灣證交所 · TWD'),
+      liveAsset('dji', '道瓊斯', 'DIA', 'DIA ETF · USD'),
+      { id: 'nikkei', name: '日經225', label: '尚無免費即時來源', status: 'mock', price: '38,520.30', change: '-150.20', changePct: '-0.39%', color: 'trend-down', spark: [38600, 38700, 38650, 38600, 38550, 38500, 38520.30] },
+      liveAsset('eth', '以太幣', 'ETH/USD', 'ETH/USD'),
+      liveAsset('brent', '布倫特原油', 'BNO', 'BNO ETF · USD'),
+      twAsset('foxconn', '鴻海', '2317 · 台灣證交所 · TWD')
+    ];
+
+    const MAX_WATCHLIST = 6;
+    // 改為預設 3 項，讓使用者有空間可以新增
+    const DEFAULT_WATCHLIST = ['twii', 'btc', 'tsmc'];
+
+    /* ==================== 狀態 ==================== */
+    let state = {
+      loggedIn: false,
+      watchlist: [...DEFAULT_WATCHLIST],
+      editMode: false,
+      expandedAssetId: null,
+      editDraft: null,
+      newsFilter: 'all'
+    };
+
+    const detailCharts = {};
+
+    /* ==================== 真實行情（Twelve Data） ====================
+       1. 到 https://twelvedata.com/ 註冊免費帳號，取得 API Key 貼到下方。
+       2. 前端的 Key 任何人都看得到，請只使用免費方案的 Key，不要放付費 Key。
+       3. 免費額度：每分鐘 8 次、每天 800 次。本頁只抓「清單內」的標的，
+          並以一次批次請求取得，結果快取 5 分鐘，避免超量。
+    */
+    const TWELVE_DATA_API_KEY = 'YOUR_TWELVE_DATA_API_KEY';
+    const HISTORY_DAYS = 30;                 // 日線收盤筆數（同時用於 sparkline 與詳細圖）
+    const QUOTE_TTL_MS = 5 * 60 * 1000;      // 快取與自動更新間隔
+    const QUOTE_CACHE_KEY = 'tdQuoteCache_v1';
+    let quoteFetching = false;
+    let quoteRefetchQueued = false;
+    let quoteRetryTimer = null;
+
+    const statusParts = { td: null, tw: null };
+    function setDataStatus(text, isError, key = 'td') {
+      statusParts[key] = text ? { text, isError: Boolean(isError) } : null;
+      const el = document.getElementById('dataStatus');
+      if (!el) return;
+      const parts = Object.values(statusParts).filter(Boolean);
+      el.textContent = parts.map(x => x.text).join('　／　');
+      el.className = 'text-xs mt-0.5 ' + (parts.some(x => x.isError) ? 'text-amber-600' : 'text-slate-400');
+    }
+    function readQuoteCache() {
+      try { return JSON.parse(localStorage.getItem(QUOTE_CACHE_KEY)) || {}; } catch (e) { return {}; }
+    }
+    function writeQuoteCache(cache) {
+      try { localStorage.setItem(QUOTE_CACHE_KEY, JSON.stringify(cache)); } catch (e) { /* 隱私模式等情況，忽略 */ }
+    }
+    function fmtNumber(n) {
+      return n.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: Math.abs(n) < 1 ? 4 : 2 });
+    }
+    // points: [{ d: '2026-10-24', c: 123.4 }, ...] 由舊到新；漲跌以「前一個交易日收盤」為基準
+    function applySeries(asset, points) {
+      if (!Array.isArray(points) || points.length < 2) return false;
+      const closes = points.map(p => p.c);
+      const last = closes[closes.length - 1];
+      const prev = closes[closes.length - 2];
+      const diff = last - prev;
+      const pct = prev ? (diff / prev) * 100 : 0;
+      const sign = diff > 0 ? '+' : diff < 0 ? '-' : '';
+      asset.price = fmtNumber(last);
+      asset.change = sign + fmtNumber(Math.abs(diff));
+      asset.changePct = sign + Math.abs(pct).toFixed(2) + '%';
+      asset.color = diff > 0 ? 'trend-up' : diff < 0 ? 'trend-down' : 'trend-flat';
+      asset.spark = closes;
+      asset.dates = points.map(p => p.d);
+      asset.asOf = points[points.length - 1].d;
+      asset.status = 'live';
+      return true;
+    }
+
+    // 台股：讀取 GitHub Actions 產生的靜態 JSON（同網域最穩；若網站放在 Firebase Hosting 又不想每次重新部署，
+    // 可改成 'https://raw.githubusercontent.com/<帳號>/<repo>/main/data/tw-quotes.json'，該網址允許跨網域讀取，repo 需為公開）
+    const TW_QUOTES_URL = './data/tw-quotes.json';
+    let twFetching = false;
+    let twLastFetch = 0;
+    async function refreshTwQuotes(force = false) {
+      const targets = state.watchlist.map(id => allAssets.find(a => a.id === id)).filter(a => a && a.tw);
+      if (!targets.length || twFetching) return;
+      if (!force && Date.now() - twLastFetch < 120000 && targets.every(a => a.status === 'live')) return;
+      twFetching = true;
+      try {
+        const res = await fetch(TW_QUOTES_URL, { cache: 'no-cache' });
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        const json = await res.json();
+        const missing = [];
+        targets.forEach(a => {
+          const entry = json.series && json.series[a.tw];
+          if (!entry || !applySeries(a, entry.points)) {
+            if (a.status !== 'live') a.status = 'error';
+            missing.push(a.name);
+          }
+        });
+        twLastFetch = Date.now();
+        const ageDays = json.updatedAt ? (Date.now() - new Date(json.updatedAt).getTime()) / 86400000 : 0;
+        if (missing.length) setDataStatus('台股資料缺少：' + missing.join('、'), true, 'tw');
+        else if (ageDays > 5) setDataStatus('台股資料已 ' + Math.floor(ageDays) + ' 天未更新，請檢查 GitHub Actions。', true, 'tw');
+        else setDataStatus('', false, 'tw');
+      } catch (error) {
+        console.error('取得台股資料失敗', error);
+        targets.forEach(a => { if (a.status !== 'live') a.status = 'error'; });
+        setDataStatus('台股資料讀取失敗（' + (error.message || '網路錯誤') + '），請確認 GitHub Actions 已執行並產生 data/tw-quotes.json。', true, 'tw');
+      } finally {
+        twFetching = false;
+        renderWatchlist(true);
+      }
+    }
+
+    async function refreshQuotes(force = false) {
+      refreshTwQuotes(force);
+      if (quoteFetching) { quoteRefetchQueued = true; return; }
+      const targets = state.watchlist.map(id => allAssets.find(a => a.id === id)).filter(a => a && a.td);
+      if (!targets.length) return;
+
+      // 先用快取立刻顯示，避免畫面空白
+      const cache = readQuoteCache();
+      const now = Date.now();
+      const toFetch = [];
+      let latestCacheTime = 0;
+      targets.forEach(a => {
+        const c = cache[a.td];
+        if (c && applySeries(a, c.points)) latestCacheTime = Math.max(latestCacheTime, c.t);
+        if (force || !c || now - c.t > QUOTE_TTL_MS - 15000) toFetch.push(a);
+      });
+      if (latestCacheTime) updateLastUpdated(latestCacheTime);
+      renderWatchlist(true);
+      if (!toFetch.length) return;
+
+      if (!TWELVE_DATA_API_KEY || TWELVE_DATA_API_KEY.startsWith('YOUR_')) {
+        toFetch.forEach(a => { if (a.status !== 'live') a.status = 'error'; });
+        setDataStatus('尚未設定 Twelve Data API Key，部分標的無法顯示即時行情。', true);
+        renderWatchlist(true);
+        return;
+      }
+
+      quoteFetching = true;
+      let rateLimited = false;
+      try {
+        const symbols = toFetch.map(a => a.td);
+        const url = 'https://api.twelvedata.com/time_series'
+          + '?symbol=' + encodeURIComponent(symbols.join(','))
+          + '&interval=1day&outputsize=' + HISTORY_DAYS
+          + '&apikey=' + encodeURIComponent(TWELVE_DATA_API_KEY);
+        const res = await fetch(url);
+        const json = await res.json();
+        if (json && json.status === 'error' && json.code) {
+          if (json.code === 429) rateLimited = true;
+          throw new Error(json.message || ('API 錯誤 ' + json.code));
+        }
+        // 單一代號時回傳不分層；多個代號時以代號為 key
+        const bySymbol = symbols.length === 1 ? { [symbols[0]]: json } : json;
+        const failed = [];
+        toFetch.forEach(a => {
+          const entry = bySymbol[a.td];
+          if (!entry || entry.status === 'error' || !Array.isArray(entry.values)) {
+            if (entry && entry.code === 429) rateLimited = true;
+            failed.push(a);
+            return;
+          }
+          const points = entry.values
+            .map(v => ({ d: v.datetime, c: parseFloat(v.close) }))
+            .filter(p => Number.isFinite(p.c))
+            .reverse(); // API 由新到舊，轉成由舊到新
+          if (applySeries(a, points)) cache[a.td] = { t: Date.now(), points };
+          else failed.push(a);
+        });
+        writeQuoteCache(cache);
+        failed.forEach(a => { if (a.status !== 'live') a.status = 'error'; });
+        if (failed.length) {
+          setDataStatus(rateLimited
+            ? 'API 每分鐘用量已達上限，約 1 分鐘後自動重試。'
+            : '部分標的取得失敗：' + failed.map(a => a.name).join('、'), true);
+        } else {
+          setDataStatus('');
+        }
+        if (toFetch.some(a => a.status === 'live')) updateLastUpdated();
+      } catch (error) {
+        console.error('取得行情失敗', error);
+        toFetch.forEach(a => { if (a.status !== 'live') a.status = 'error'; });
+        setDataStatus(rateLimited
+          ? 'API 每分鐘用量已達上限，約 1 分鐘後自動重試。'
+          : '行情更新失敗：' + (error.message || '網路錯誤'), true);
+      } finally {
+        quoteFetching = false;
+        renderWatchlist(true);
+        if (rateLimited) {
+          clearTimeout(quoteRetryTimer);
+          quoteRetryTimer = setTimeout(() => refreshQuotes(), 65000);
+        } else if (quoteRefetchQueued) {
+          quoteRefetchQueued = false;
+          refreshQuotes();
+        }
+      }
+    }
+
+    /* ==================== 初始化與個人清單同步 ==================== */
+    function sanitizeWatchlist(ids) {
+      if (!Array.isArray(ids)) return [...DEFAULT_WATCHLIST];
+      return [...new Set(ids)]
+        .filter(id => typeof id === 'string' && allAssets.some(asset => asset.id === id))
+        .slice(0, MAX_WATCHLIST);
+    }
+
+    function watchlistDoc(user) {
+      return db.collection('users').doc(user.uid).collection('private').doc('watchlist');
+    }
+
+    async function loadUserWatchlist(user) {
+      try {
+        const snapshot = await watchlistDoc(user).get();
+        if (snapshot.exists) {
+          state.watchlist = sanitizeWatchlist(snapshot.data().assetIds);
+        } else {
+          state.watchlist = [...DEFAULT_WATCHLIST];
+          await watchlistDoc(user).set({ assetIds: state.watchlist, updatedAt: firebase.firestore.FieldValue.serverTimestamp() });
+        }
+        renderWatchlist();
+        refreshQuotes();
+      } catch (error) {
+        console.error('讀取個人投資清單失敗', error);
+        alert('無法讀取你的投資清單。請確認 Firestore 已啟用且安全規則已部署。');
+      }
+    }
+
+    async function persistWatchlist() {
+      if (!currentUser || !db) {
+        alert('請先使用 Google 帳號登入，才能儲存個人投資清單。');
+        return false;
+      }
+      const ids = sanitizeWatchlist(state.watchlist);
+      watchlistSaveQueue = watchlistSaveQueue.then(() => watchlistDoc(currentUser).set({
+        assetIds: ids,
+        updatedAt: firebase.firestore.FieldValue.serverTimestamp()
+      }, { merge: true }));
+      try {
+        await watchlistSaveQueue;
+        return true;
+      } catch (error) {
+        console.error('儲存個人投資清單失敗', error);
+        alert('儲存失敗。請檢查網路、Firebase 設定及 Firestore 安全規則。');
+        return false;
+      }
+    }
+
+    function init() {
+      document.getElementById('loginBtn').addEventListener('click', toggleLogin);
+      renderWatchlist();
+      renderTopics();
+      renderNews();
+      renderAlerts();
+      refreshQuotes();
+      setInterval(() => { if (!document.hidden) refreshQuotes(); }, QUOTE_TTL_MS);
+      document.addEventListener('visibilitychange', () => { if (!document.hidden) refreshQuotes(); });
+      if (!firebaseConfigured) {
+        updateLoginUI(false);
+        const message = document.getElementById('authMessage');
+        message.textContent = '尚未設定 Firebase。請先在 HTML 中填入 Firebase Web App 設定。';
+      } else {
+        auth.onAuthStateChanged(async user => {
+          currentUser = user || null;
+          state.loggedIn = Boolean(user);
+          if (user) {
+            closeLoginModal();
+            await loadUserWatchlist(user);
+          } else {
+            state.watchlist = [...DEFAULT_WATCHLIST];
+            closeEdit();
+            collapseDetail();
+          }
+          updateLoginUI(Boolean(user));
+          if (!user) refreshQuotes();
+          const status = document.getElementById('loginStatus');
+          if (user && status) status.title = user.email || user.displayName || '';
+        });
+      }
+    }
+
+    function updateLastUpdated(ts = Date.now()) {
+      const el = document.getElementById('lastUpdated');
+      if (el) el.textContent = new Date(ts).toLocaleTimeString('zh-TW', { hour: '2-digit', minute: '2-digit' });
+    }
+
+    /* ==================== Google 登入 / 登出 ==================== */
+    function toggleLogin() {
+      if (currentUser && auth) {
+        auth.signOut().catch(error => {
+          console.error('登出失敗', error);
+          alert('登出失敗，請稍後再試。');
+        });
+      } else {
+        openLoginModal();
+      }
+    }
+
+    function openLoginModal() {
+      const modal = document.getElementById('loginModal');
+      const overlay = modal.querySelector('.modal-overlay');
+      const content = modal.querySelector('.relative.bg-white');
+      modal.classList.remove('hidden');
+      const message = document.getElementById('authMessage');
+      message.classList.add('hidden');
+      if (!firebaseConfigured) {
+        message.textContent = '尚未設定 Firebase。請先在 HTML 中填入 Firebase Web App 設定。';
+        message.classList.remove('hidden');
+      }
+      requestAnimationFrame(() => {
+        overlay.classList.remove('opacity-0');
+        content.classList.remove('opacity-0', 'scale-95');
+        content.classList.add('opacity-100', 'scale-100');
+      });
+    }
+
+    function closeLoginModal() {
+      const modal = document.getElementById('loginModal');
+      if (!modal || modal.classList.contains('hidden')) return;
+      const overlay = modal.querySelector('.modal-overlay');
+      const content = modal.querySelector('.relative.bg-white');
+      overlay.classList.add('opacity-0');
+      content.classList.remove('opacity-100', 'scale-100');
+      content.classList.add('opacity-0', 'scale-95');
+      setTimeout(() => { modal.classList.add('hidden'); }, 300);
+    }
+
+    async function signInWithGoogle() {
+      const message = document.getElementById('authMessage');
+      message.classList.add('hidden');
+      if (!firebaseConfigured || !auth) {
+        message.textContent = '尚未設定 Firebase，請先完成設定步驟。';
+        message.classList.remove('hidden');
+        return;
+      }
+      try {
+        const provider = new firebase.auth.GoogleAuthProvider();
+        provider.setCustomParameters({ prompt: 'select_account' });
+        await auth.signInWithPopup(provider);
+      } catch (error) {
+        console.error('Google 登入失敗', error);
+        message.textContent = error.code === 'auth/popup-closed-by-user'
+          ? '登入視窗已關閉，尚未完成登入。'
+          : `Google 登入失敗：${error.message || error.code || '未知錯誤'}`;
+        message.classList.remove('hidden');
+      }
+    }
+
+    function updateLoginUI(isLoggedIn) {
+      const btn = document.getElementById('loginBtn');
+      const status = document.getElementById('loginStatus');
+      const editBtn = document.getElementById('editBtn');
+
+      if (isLoggedIn) {
+        btn.textContent = '登出';
+        btn.className = 'bg-red-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-red-700 transition';
+        status.textContent = currentUser ? (currentUser.displayName || currentUser.email || '已登入') : '已登入';
+        status.className = 'px-2 py-0.5 rounded-full bg-green-100 text-green-700 text-xs border border-green-200';
+        editBtn.disabled = false;
+      } else {
+        btn.textContent = '登入';
+        btn.className = 'bg-slate-900 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-slate-800 transition';
+        status.textContent = '訪客模式';
+        status.className = 'px-2 py-0.5 rounded-full bg-slate-100 text-slate-600 text-xs border border-slate-200';
+        editBtn.disabled = true;
+        state.editMode = false;
+      }
+      renderWatchlist();
+    }
+
+    /* ==================== 編輯模式切換 ==================== */
+    function handleEditClick() {
+      if (!state.loggedIn) {
+        alert('請先登入後才能自定義投資標的');
+        return;
+      }
+      openEditModal();
+    }
+
+    /* ==================== 渲染主畫面標的網格 ==================== */
+    function renderWatchlist(keepDetail = false) {
+      const reopenId = keepDetail ? state.expandedAssetId : null;
+      collapseDetail();
+      const grid = document.getElementById('watchlistGrid');
+      const empty = document.getElementById('emptyState');
+
+      if (state.watchlist.length === 0) {
+        grid.innerHTML = '';
+        empty.classList.remove('hidden');
+        return;
+      } else {
+        empty.classList.add('hidden');
+      }
+
+      grid.innerHTML = state.watchlist.map(id => {
+        const a = allAssets.find(x => x.id === id);
+        if (!a) return '';
+        const isRemovable = state.editMode && state.loggedIn;
+        const mockBadge = a.status === 'mock'
+          ? '<span class="ml-1 px-1 rounded bg-amber-100 text-amber-700 text-[9px] font-bold normal-case tracking-normal">模擬</span>' : '';
+        let priceHtml, changeHtml = '';
+        if (a.status === 'loading') {
+          priceHtml = '<span class="text-sm font-medium text-slate-400">載入中…</span>';
+        } else if (a.status === 'error') {
+          priceHtml = '<span class="text-sm font-medium text-slate-400">無法取得</span>';
+        } else {
+          priceHtml = a.price;
+          changeHtml = `<div class="text-sm font-bold ${a.color}">${a.change}</div><div class="text-xs ${a.color}">${a.changePct}</div>`;
+        }
+        return `
+          <div class="market-card bg-white p-3 rounded-xl border border-slate-200 shadow-sm relative group ${state.editMode ? 'edit-mode' : ''}" onclick="toggleDetail('${a.id}')">
+            ${isRemovable ? `<button onclick="event.stopPropagation(); removeAsset('${a.id}')" class="remove-badge absolute top-2 right-2 bg-rose-100 text-rose-600 hover:bg-rose-200 text-[10px] px-2 py-0.5 rounded font-bold transition">移除</button>` : ''}
+            <div class="flex justify-between items-start mb-1">
+              <div>
+                <div class="text-xs text-slate-400 uppercase tracking-wider font-semibold">${a.name}${mockBadge}</div>
+                <div class="text-lg font-bold text-slate-900">${priceHtml}</div>
+                <div class="text-[10px] text-slate-400 mt-0.5">${a.label || ''}</div>
+              </div>
+              <div class="text-right">${changeHtml}</div>
+            </div>
+            <canvas id="spark-${a.id}" class="spark-canvas" width="140" height="28"></canvas>
+          </div>
+        `;
+      }).join('');
+
+      state.watchlist.forEach(id => {
+        const a = allAssets.find(x => x.id === id);
+        if (a && a.spark.length > 1) drawSparkline(`spark-${a.id}`, a.spark);
+      });
+      if (reopenId && state.watchlist.includes(reopenId)) toggleDetail(reopenId);
+    }
+
+    /* ==================== 新增 / 刪除標的（核心邏輯） ==================== */
+
+    async function removeAsset(id) {
+      if (!currentUser) {
+        alert('請先使用 Google 帳號登入，才能管理個人投資清單。');
+        return;
+      }
+      const previous = [...state.watchlist];
+      state.watchlist = state.watchlist.filter(x => x !== id);
+      const saved = await persistWatchlist();
+      if (!saved) state.watchlist = previous;
+      if (state.expandedAssetId === id) collapseDetail();
+      renderWatchlist();
+    }
+
+    function addToEdit(id) {
+      if (!state.editDraft || !allAssets.some(asset => asset.id === id)) return;
+      if (state.editDraft.includes(id)) return;
+      if (state.editDraft.length >= MAX_WATCHLIST) {
+        alert(`最多只能選擇 ${MAX_WATCHLIST} 個標的。`);
+        return;
+      }
+      state.editDraft.push(id);
+      renderEditModalLists();
+    }
+
+    function removeFromEdit(id) {
+      if (!state.editDraft) return;
+      state.editDraft = state.editDraft.filter(x => x !== id);
+      renderEditModalLists();
+    }
+
+    /* ==================== 詳細走勢圖面板 ==================== */
+    function toggleDetail(id) {
+      const target = allAssets.find(x => x.id === id);
+      if (!target || target.status === 'loading' || target.status === 'error') return;
+      if (state.expandedAssetId === id) { collapseDetail(); return; }
+      if (state.expandedAssetId && detailCharts[state.expandedAssetId]) {
+        detailCharts[state.expandedAssetId].destroy();
+        delete detailCharts[state.expandedAssetId];
+      }
+      state.expandedAssetId = id;
+      const panel = document.getElementById('assetDetailPanel');
+      panel.classList.remove('hidden');
+      renderDetailPanel(id);
+    }
+
+    function collapseDetail() {
+      state.expandedAssetId = null;
+      const panel = document.getElementById('assetDetailPanel');
+      panel.classList.add('hidden');
+      panel.innerHTML = '';
+      Object.keys(detailCharts).forEach(key => {
+        detailCharts[key].destroy();
+        delete detailCharts[key];
+      });
+    }
+
+    function renderDetailPanel(id) {
+      const a = allAssets.find(x => x.id === id);
+      if (!a) return;
+      const panel = document.getElementById('assetDetailPanel');
+      const isUp = a.color === 'trend-up';
+      const isFlat = a.color === 'trend-flat';
+      const color = isFlat ? '#64748b' : isUp ? '#16a34a' : '#dc2626';
+      const bgColor = isFlat ? 'rgba(100, 116, 139, 0.1)' : isUp ? 'rgba(22, 163, 74, 0.1)' : 'rgba(220, 38, 38, 0.1)';
+      const isLive = a.status === 'live';
+      const infoHtml = isLive
+        ? `近 ${a.spark.length} 個交易日日線收盤<br>最新資料日期：${a.asOf}<br>來源：${a.tw ? '台灣證交所（每日盤後更新）' : 'Twelve Data'}（${a.label}）`
+        : '模擬資料（尚無免費即時來源）';
+
+      panel.innerHTML = `
+        <div class="flex flex-col lg:flex-row lg:items-center gap-6 mb-6">
+          <div class="flex-1 min-w-0">
+            <div class="flex items-center justify-between mb-2">
+              <h3 class="text-lg font-bold text-slate-800">${a.name}</h3>
+              <button onclick="collapseDetail()" class="text-slate-400 hover:text-slate-600"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="text-2xl font-bold text-slate-900">${a.price}</div>
+            <div class="mt-1 flex items-baseline gap-1">
+              <span class="text-lg font-bold ${a.color}">${a.change}</span>
+              <span class="text-sm ${a.color}">${a.changePct}</span>
+            </div>
+          </div>
+          <div class="w-full lg:w-64 lg:text-right">
+            <div class="text-xs text-slate-500 font-medium leading-relaxed">${infoHtml}</div>
+          </div>
+        </div>
+        <div class="h-64 w-full">
+          <canvas id="detail-panel-chart" height="256"></canvas>
+        </div>
+      `;
+
+      setTimeout(() => {
+        const canvas = document.getElementById('detail-panel-chart');
+        if (!canvas) return;
+        const ctx = canvas.getContext('2d');
+        const labels = isLive ? a.dates.map(d => String(d).slice(5, 10)) : a.spark.slice(0, 7).map((_, index) => `樣本 ${index + 1}`);
+        const data = isLive ? a.spark : a.spark.slice(0, 7);
+        detailCharts[id] = new Chart(ctx, {
+          type: 'line',
+          data: {
+            labels: labels,
+            datasets: [{
+              label: a.name,
+              data: data,
+              borderColor: color,
+              backgroundColor: bgColor,
+              borderWidth: 2,
+              pointRadius: isLive ? 2 : 4,
+              pointHoverRadius: 6,
+              fill: true,
+              tension: 0.3
+            }]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: { legend: { display: false }, tooltip: { mode: 'index', intersect: false } },
+            scales: { x: { grid: { display: false } }, y: { grid: { borderColor: '#f3f4f6' } } },
+            animation: { duration: 400 }
+          }
+        });
+      }, 0);
+    }
+
+    /* ==================== Sparkline ==================== */
+    function drawSparkline(canvasId, data) {
+      const canvas = document.getElementById(canvasId);
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      const w = canvas.width, h = canvas.height;
+      const max = Math.max(...data), min = Math.min(...data), range = max - min || 1;
+      ctx.clearRect(0, 0, w, h);
+      ctx.beginPath();
+      ctx.lineWidth = 1.5;
+      ctx.strokeStyle = '#4f46e5';
+      data.forEach((v, i) => {
+        const x = (i / (data.length - 1)) * w;
+        const y = h - ((v - min) / range) * h;
+        if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+      });
+      ctx.stroke();
+    }
+
+    /* ==================== 編輯彈窗 ==================== */
+    function openEditModal() {
+      if (!currentUser) {
+        alert('請先使用 Google 帳號登入，才能管理個人投資清單。');
+        return;
+      }
+      state.editDraft = [...state.watchlist];
+      state.editSearch = '';
+      document.getElementById('editModal').classList.remove('hidden');
+      const searchInput = document.getElementById('assetSearchInput');
+      if (searchInput) searchInput.value = '';
+      renderEditModalLists();
+    }
+
+    function searchAddableAssets(query) {
+      state.editSearch = String(query || '').trim().toLocaleLowerCase();
+      renderEditModalLists();
+      const searchInput = document.getElementById('assetSearchInput');
+      if (searchInput && searchInput.value !== query) {
+        searchInput.value = query;
+        searchInput.focus();
+      }
+    }
+
+    // 取消時丟棄暫存變更，不影響已儲存清單。
+    function closeEdit() {
+      document.getElementById('editModal').classList.add('hidden');
+      state.editDraft = null;
+      state.editMode = false;
+      renderWatchlist();
+    }
+
+    function renderEditModalLists() {
+      const currentList = document.getElementById('currentList');
+      const draft = Array.isArray(state.editDraft) ? state.editDraft : [];
+      currentList.innerHTML = draft.map(id => {
+        const a = allAssets.find(x => x.id === id);
+        if (!a) return '';
+        return `<div class="flex items-center justify-between p-2 rounded-lg border border-slate-100 bg-slate-50"><span class="text-sm text-slate-700">${a.name}</span><button onclick="removeFromEdit('${a.id}')" class="text-rose-500 hover:text-rose-700 text-xs font-medium">移除</button></div>`;
+      }).join('');
+      if (!draft.length) currentList.innerHTML = '<p class="text-sm text-slate-400">尚未選擇標的</p>';
+
+      const candidateList = document.getElementById('candidateList');
+      const query = String(state.editSearch || '').trim().toLocaleLowerCase();
+      const candidates = allAssets.filter(asset =>
+        !draft.includes(asset.id) &&
+        (!query || asset.name.toLocaleLowerCase().includes(query) || asset.id.toLocaleLowerCase().includes(query))
+      );
+      if (draft.length >= MAX_WATCHLIST) {
+        candidateList.innerHTML = `<div class="p-3 rounded-lg border border-slate-200 bg-slate-50 text-center text-sm text-slate-500">已達上限 ${MAX_WATCHLIST} 項，請先移除目前釘選的標的才能新增。</div>`;
+      } else {
+        candidateList.innerHTML = candidates.length ? candidates.map(a => `
+          <div class="flex items-center justify-between gap-2 p-2 rounded-lg border border-slate-100 bg-white hover:bg-slate-50 transition">
+            <span class="min-w-0 text-sm text-slate-700">${a.name}</span>
+            <button onclick="addToEdit('${a.id}')" class="shrink-0 text-xs font-medium px-2 py-1 rounded bg-indigo-600 text-white hover:bg-indigo-700">加入</button>
+          </div>
+        `).join('') : `<p class="p-2 text-sm text-slate-400">${query ? '找不到符合的可新增標的' : '沒有其他可新增標的'}</p>`;
+      }
+    }
+
+    async function saveEdit() {
+      if (!Array.isArray(state.editDraft)) {
+        closeEdit();
+        return;
+      }
+      const previous = [...state.watchlist];
+      state.watchlist = sanitizeWatchlist(state.editDraft);
+      const saved = await persistWatchlist();
+      if (saved) { closeEdit(); refreshQuotes(); }
+      else {
+        state.watchlist = previous;
+        renderWatchlist();
+      }
+    }
+
+    /* ==================== 其他區塊假資料 ==================== */
+    const topics = [
+      { id: 1, name: "AI 晶片供應鏈", heat: 94, sentiment: 0.42, count: 48, trend: "up" },
+      { id: 2, name: "利率與通膨預期", heat: 88, sentiment: -0.15, count: 41, trend: "down" },
+      { id: 3, name: "台海地緣政治", heat: 76, sentiment: -0.68, count: 33, trend: "up" },
+      { id: 4, name: "電動車補助政策", heat: 62, sentiment: 0.21, count: 27, trend: "flat" },
+      { id: 5, name: "綠能轉型與碳關稅", heat: 55, sentiment: 0.05, count: 22, trend: "up" }
+    ];
+    const news = [
+      { time: "14:32", source: "路透社", title: "聯準會官員暗示年內可能再度升息", sentiment: "negative", topic: "利率" },
+      { time: "13:55", source: "鉅亨網", title: "台積電 2nm 量產時間表提前至 2026 年", sentiment: "positive", topic: "AI 晶片" },
+      { time: "13:20", source: "Bloomberg", title: "美國對華半導體出口管制新規發布", sentiment: "negative", topic: "地緣政治" },
+      { time: "12:45", source: "經濟日報", title: "電動車購車補助方案擬延長一年", sentiment: "positive", topic: "電動車" },
+      { time: "11:10", source: "鉅亨網", title: "歐盟碳邊境調節機制 (CBAM) 進入試辦階段", sentiment: "neutral", topic: "綠能" },
+      { time: "09:55", source: "CNBC", title: "NVIDIA CEO 宣布下一代架構 Rubin 將於 2026 推出", sentiment: "positive", topic: "AI 晶片" },
+      { time: "08:30", source: "工商時報", title: "台股三大法人連續五日淨賣出", sentiment: "negative", topic: "利率" }
+    ];
+    const alerts = [
+      { type: "danger", icon: "fa-triangle-exclamation", title: "AI 晶片主題新聞量異常增加", desc: "近 3 小時新聞量比過去平均值高出 340%" },
+      { type: "warning", icon: "fa-clock", title: "地緣政治情感急轉負向", desc: "台海相關新聞情感分數由 +0.10 跌至 -0.68" },
+      { type: "info", icon: "fa-chart-line", title: "利率主題與台指負相關加強", desc: "最近 5 天新聞情感與指數滯後相關係數達 -0.72" }
+    ];
+
+    function renderTopics() {
+      const container = document.getElementById("topicList");
+      container.innerHTML = topics.map(t => {
+        const trendClass = t.trend === "up" ? "trend-up" : t.trend === "down" ? "trend-down" : "trend-flat";
+        const trendIcon = t.trend === "up" ? "↑" : t.trend === "down" ? "↓" : "→";
+        const heatWidth = t.heat + "%";
+        return `<div class="p-3 rounded-xl border border-slate-100 bg-white mb-3"><div class="flex justify-between items-start mb-1"><span class="font-bold text-slate-800 text-sm">${t.name}</span><span class="text-xs font-bold ${trendClass}">${trendIcon}</span></div><div class="w-full bg-slate-100 h-1.5 rounded-full mb-2 overflow-hidden"><div class="h-full ${t.sentiment > 0 ? "bg-indigo-500" : t.sentiment < 0 ? "bg-rose-500" : "bg-slate-400"}" style="width: ${heatWidth}"></div></div><div class="flex justify-between text-xs text-slate-500"><span>新聞 ${t.count} 則</span><span>情感 ${(t.sentiment*100).toFixed(0)}</span></div></div>`;
+      }).join("");
+    }
+    function filterNews(filter) {
+      state.newsFilter = ['all', 'positive', 'negative'].includes(filter) ? filter : 'all';
+      renderNews();
+      document.querySelectorAll('[data-news-filter]').forEach(button => {
+        const active = button.dataset.newsFilter === state.newsFilter;
+        button.className = active
+          ? 'px-3 py-1 rounded bg-indigo-600 text-white text-xs font-medium'
+          : 'px-3 py-1 rounded border border-slate-200 text-xs font-medium text-slate-600 hover:bg-slate-50';
+      });
+    }
+
+    function renderNews() {
+      const container = document.getElementById("newsFeed");
+      const visibleNews = state.newsFilter === 'all' ? news : news.filter(item => item.sentiment === state.newsFilter);
+      container.innerHTML = visibleNews.map(n => {
+        const sentClass = n.sentiment === "positive" ? "sent-positive" : n.sentiment === "negative" ? "sent-negative" : "sent-neutral";
+        const sentLabel = n.sentiment === "positive" ? "正面" : n.sentiment === "negative" ? "負面" : "中性";
+        return `<div class="flex gap-3 p-3 rounded-lg border border-slate-100 bg-white hover:bg-slate-50 cursor-pointer transition group"><div class="text-[10px] font-bold text-slate-400 whitespace-nowrap">${n.time}</div><div class="flex-1 min-w-0"><div class="text-xs font-semibold text-slate-700 truncate">${n.source}</div><div class="text-sm font-medium text-slate-900 leading-snug mt-0.5 truncate">${n.title}</div><div class="flex items-center gap-2 mt-2"><span class="px-2 py-0.5 rounded text-[10px] font-bold border ${sentClass}">${sentLabel}</span><span class="text-[10px] text-slate-400 bg-slate-50 px-2 py-0.5 rounded border border-slate-200">${n.topic}</span></div></div></div>`;
+      }).join("");
+    }
+    function renderAlerts() {
+      const container = document.getElementById("alertList");
+      container.innerHTML = alerts.map(a => {
+        const typeColor = a.type === "danger" ? "border-rose-500 bg-rose-50" : a.type === "warning" ? "border-amber-500 bg-amber-50" : "border-blue-500 bg-blue-50";
+        const iconColor = a.type === "danger" ? "text-rose-600" : a.type === "warning" ? "text-amber-600" : "text-blue-600";
+        return `<div class="p-3 rounded-lg border ${typeColor}"><div class="flex items-start gap-2 mb-1"><div class="${iconColor} text-xs mt-0.5"><i class="fa-solid ${a.icon}"></i></div><div class="flex-1"><div class="text-xs font-bold text-slate-800">${a.title}</div><div class="text-[10px] text-slate-500 mt-0.5">${a.desc}</div></div></div></div>`;
+      }).join("");
+    }
+
+    init();
+  </script>
+</body>
+</html>
