@@ -14,6 +14,7 @@ const TARGETS = [
   { id: 'twii',    type: 'index', name: '加權指數' },
   { id: 'tsmc',    type: 'stock', code: '2330', name: '台積電' },
   { id: 'foxconn', type: 'stock', code: '2317', name: '鴻海' },
+  { id: '0050',    type: 'stock', code: '0050', name: '元大台灣50' },
 ];
 
 const INDEX_URLS = (ym) => [
