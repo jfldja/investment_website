@@ -1,64 +1,64 @@
 {
-  "updatedAt": "2026-10-28T22:29:56.095Z",
+  "updatedAt": "2026-10-29T05:36:38.624Z",
   "source": "Google News RSS",
   "method": "keyword-dictionary",
   "failedTopics": [],
   "market": {
-    "score": 55,
-    "prevScore": 25,
-    "delta": 30,
-    "bull": 27,
-    "bear": 21,
-    "neutral": 52,
-    "total": 475
+    "score": 47,
+    "prevScore": 24,
+    "delta": 23,
+    "bull": 22,
+    "bear": 27,
+    "neutral": 51,
+    "total": 520
   },
   "topics": [
     {
       "id": 1,
       "name": "AI 晶片供應鏈",
       "count": 92,
-      "heat": 98,
-      "sentiment": 0.14,
+      "heat": 95,
+      "sentiment": 0.04,
       "trend": "up"
     },
     {
       "id": 2,
       "name": "利率與通膨預期",
-      "count": 89,
-      "heat": 95,
-      "sentiment": -0.03,
+      "count": 97,
+      "heat": 100,
+      "sentiment": -0.04,
       "trend": "up"
     },
     {
       "id": 3,
       "name": "台海地緣政治",
-      "count": 47,
-      "heat": 50,
-      "sentiment": -0.21,
-      "trend": "flat"
+      "count": 59,
+      "heat": 61,
+      "sentiment": -0.18,
+      "trend": "up"
     },
     {
       "id": 4,
       "name": "台股與資金面",
-      "count": 94,
-      "heat": 100,
-      "sentiment": 0.28,
+      "count": 96,
+      "heat": 99,
+      "sentiment": -0.1,
       "trend": "up"
     },
     {
       "id": 5,
       "name": "加密貨幣",
-      "count": 75,
-      "heat": 80,
-      "sentiment": -0.09,
+      "count": 93,
+      "heat": 96,
+      "sentiment": 0.01,
       "trend": "up"
     },
     {
       "id": 6,
       "name": "原油與黃金",
-      "count": 90,
+      "count": 93,
       "heat": 96,
-      "sentiment": 0.07,
+      "sentiment": 0.05,
       "trend": "up"
     }
   ],
@@ -66,574 +66,574 @@
     {
       "type": "danger",
       "icon": "fa-triangle-exclamation",
-      "title": "利率與通膨預期主題新聞量異常增加",
-      "desc": "近 6 小時 67 則，約為前 42 小時平均的 21.3 倍"
+      "title": "台股與資金面主題新聞量異常增加",
+      "desc": "近 6 小時 75 則，約為前 42 小時平均的 23.9 倍"
     },
     {
       "type": "danger",
       "icon": "fa-triangle-exclamation",
-      "title": "台股與資金面主題新聞量異常增加",
-      "desc": "近 6 小時 44 則，約為前 42 小時平均的 6.0 倍"
+      "title": "利率與通膨預期主題新聞量異常增加",
+      "desc": "近 6 小時 71 則，約為前 42 小時平均的 19.1 倍"
     },
     {
       "type": "danger",
       "icon": "fa-triangle-exclamation",
       "title": "原油與黃金主題新聞量異常增加",
-      "desc": "近 6 小時 30 則，約為前 42 小時平均的 3.2 倍"
+      "desc": "近 6 小時 58 則，約為前 42 小時平均的 11.6 倍"
     },
     {
-      "type": "info",
-      "icon": "fa-chart-line",
-      "title": "原油與黃金情感急轉正向",
-      "desc": "24 小時平均情感由 -53 變為 +7（5→90 則）"
+      "type": "danger",
+      "icon": "fa-triangle-exclamation",
+      "title": "AI 晶片供應鏈主題新聞量異常增加",
+      "desc": "近 6 小時 53 則，約為前 42 小時平均的 8.8 倍"
     },
     {
-      "type": "info",
-      "icon": "fa-chart-line",
-      "title": "市場情緒溫度較昨日大幅升溫",
-      "desc": "由 25 變為 55（+30）"
+      "type": "danger",
+      "icon": "fa-triangle-exclamation",
+      "title": "加密貨幣主題新聞量異常增加",
+      "desc": "近 6 小時 46 則，約為前 42 小時平均的 6.3 倍"
     }
   ],
   "news": [
     {
-      "time": "2026-10-28T22:22:00.000Z",
-      "source": "Yahoo新聞",
-      "title": "【盤前】Fed沒升息費半大漲1.75%！台指夜盤反跌128點 台股今拚續攻",
-      "link": "https://news.google.com/rss/articles/CBMi7AJBVV95cUxQaVhEZE9KbGJsaTJMUUxYT0pfQ25OMGlQa3QteHBOeUZWbk5RVlBrdDNwcmlaX1g1d0M4TTRPblhoN2MtR3FCbHpYVlRKYzNCRERxUVQxOEdYdzkwaGk3UUZCeV9tSnM1dktwakU0SlVUZlhGaTFkeU1hRG9tWTROMnY1X3c5Q1lBQkxOa05RWG02U1FJM0kzQUlzRlIwWFBkVE5YVmI0RWxhNG9TQW9BS0V2UjhoY3ZZRWY1LTN4MU1oOEVaUVNUdUxfQ3JqLTZDSHRVLU11aDdpQjFlajg0aUR6MmdwOEc0RHlDelR3MlItTTBRdWwyVHhJaVRCMTdXN2N1U1NfVmFSNDlMNmFDWnAwSkZMVTBGMGVLcGFlYUo1M1pnWUNtcjhWXzFac2FMZUJwd2VHQXNJYWFCb05wRWNiLWhVR0VONmV0YllFTm42bmJFNE42a21VTGRlSnRVMXRlRUdVWjB1YnFy?oc=5",
-      "sentiment": "positive",
-      "score": 1.5,
-      "topic": "利率與通膨預期"
+      "time": "2026-10-29T05:35:47.000Z",
+      "source": "TechNews 科技新報",
+      "title": "小小元件扛起 AI 用電重任，一次看懂功率半導體與第三類半導體",
+      "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxOejVNbTVxblZvMkVwaXU4RXZyMktjUUhmRUtUOVhXaHBuZnJtUUY3dFJ6a0hnaGdHQzR3UXlQa0lRMEEtWVAxRVRDSXdIMThGSUE4RzFJZDFaeV9HNXJJM2Z5YWhhaFdYLWllb0N3SkJOTE1FaEpvRmtmSTYtZEs1a1RBbnNwQmZtZnp6U1I2ZmZYbVk3LUJN?oc=5",
+      "sentiment": "neutral",
+      "score": 0,
+      "topic": "AI 晶片供應鏈"
     },
     {
-      "time": "2026-10-28T22:15:00.000Z",
-      "source": "MoneyDJ",
-      "title": "《貴金屬》殖利率走高 COMEX黃金下跌0.6%",
-      "link": "https://news.google.com/rss/articles/CBMilgFBVV95cUxPaGxhYmdIS1A3X0pWQmNWOVJkYm1ZRHlSZmRlRFlKNHJfZUI1aExNbGJtYlhrTF81RkpGdDQ4R3kxWUZ6NWltUXA1NkVHaGFCWTJJYms3ampZZWJnV01TOHNoLTgweGRHYmtPbS1FbVR5bnN1N1BpZ1VidGdKRzk3YV8xNlZXUGQ5VEFadU15WTYwdmZSTFE?oc=5",
+      "time": "2026-10-29T05:34:51.000Z",
+      "source": "Investing.com 香港 - 股市報價& 財經新聞",
+      "title": "韓國央行委員示警韓元波動，AI晶片出口榮景難掩內需隱憂 作者 Investing.com",
+      "link": "https://news.google.com/rss/articles/CBMid0FVX3lxTE9oZGZXUTNya1lWTXRqRnIwQ05pbF9maTVTdzFiRmV6RDRzRVFyN2xwREpRRENHNkZUMXVDRVhSS3M3RjMxYXdnNzhBWXNhcURVdnZZa0VpazdtVkZZMW1mcGhyRDFmQkdWeF9BSkNiWkdTSTMyU1Fr?oc=5",
+      "sentiment": "negative",
+      "score": -2,
+      "topic": "AI 晶片供應鏈"
+    },
+    {
+      "time": "2026-10-29T05:27:28.000Z",
+      "source": "鏈新聞 ABMedia",
+      "title": "中國 AI 泡沫率先破裂？科創 50 四個月暴跌 40%、市值蒸發 4800 億美元",
+      "link": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE16TVpwUmRUckRXTjAtdEZmWG9WODV3ZDVmQ2c5NXNDQWxwYXJYay1CbDZkNGdDb2cwSkNZSTBRRkhHWmc3SkdBN2kxQXRXTkx3Rm1j?oc=5",
+      "sentiment": "negative",
+      "score": -3,
+      "topic": "AI 晶片供應鏈"
+    },
+    {
+      "time": "2026-10-29T05:23:01.000Z",
+      "source": "UDN",
+      "title": "台股大跌 投資人仍加碼 個股成交第一00406A 零股成交第一是這檔",
+      "link": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE5fd2swZFhkWEtWNEdjaUliMjhZeXpKTmRpMXJUT0VSakUwNDFWNlRSNm1qZVhra3dwczYzSE5jX0JsX3lNUWEyUVd4amxtS0NLSFVB0gFYQVVfeXFMTzdEelRoLTNueFh6dTNrUVhOakhHVE1TU2xmYVQ2WVBLQjV6ZjdlaDFPY1cxaUdQLVlWblp0LW4tbkp2SmJnVXMtT1Jzd01pWjJ2R0lDUUU3NA?oc=5",
+      "sentiment": "negative",
+      "score": -1,
+      "topic": "台股與資金面"
+    },
+    {
+      "time": "2026-10-29T05:17:18.000Z",
+      "source": "經濟日報",
+      "title": "日德峰會關切台海和平穩定　外交部：彰顯國際共識",
+      "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE5adkM2RjJ5Qk9ZZTlLcURwWHBLRWRQa0ItcVdBV2NTVG43NnE5OE9XTW0wTDJ6MUYzWFJwN2pIT21RSXo0WFlERkFMSmc4ZG1VTTg4M05aWWI0QdIBX0FVX3lxTFBNakhZUzdoMDZHRWRsdVA3X2ZtWVZ4TDEyTTZrMUFvUE1jbHRwR2ozTWp6aERUQ2VjejAzT1hEcld2bWVMQ2VUZmlNY1pHSXk3b2JqWkNnMXhCWUU3MHBJ?oc=5",
+      "sentiment": "neutral",
+      "score": 0,
+      "topic": "台海地緣政治"
+    },
+    {
+      "time": "2026-10-29T05:16:30.000Z",
+      "source": "新唐人電視台",
+      "title": "美聯儲維持利率不變 12月升息機率逼近九成",
+      "link": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE5FU3NfLVlYZ3ZTYkVxM3FBSVh4ZzNRRGo5LXpKeUVfT0xhNTVtbTRNZi1ac0ZOY3gyNFFWZEt4Q0NNYXowbF9tTEVIaGFYT0xXanQtRnJsemtrTHQyZU1pedIBZkFVX3lxTE5uaC1sSE9rT1VTT3lKY1dtbjNFcDVtTUJLNWJkZzFUekY3U0dJREo3ZUU4Tmw5MXdHT3hBSURkTkRkVmZhM2VFakhOUElTWkFnNGdVTlY1VDhGV2ZLQ1EtTEp5cUIwQQ?oc=5",
       "sentiment": "negative",
       "score": -1,
       "topic": "利率與通膨預期"
     },
     {
-      "time": "2026-10-28T22:14:24.000Z",
-      "source": "BigGo 財經",
-      "title": "聯準會連兩次會議按兵不動，兩張反對票揭示鷹派地殼變動 コアウィーブ急漲背後12月升息臆測",
-      "link": "https://news.google.com/rss/articles/CBMiekFVX3lxTE5zT25MaktHaU1DaUNsUGt6RUUzUFpyRnh5YzlkVzZvRC15bkNUSzNiRWV4WHhvRzA0c25aQ0xDYS1lSm1feDJRbmJXYXZVSnltMnlRY0RDcFU0bTNTQUktclZxTzhyd3JLSFdMMFZJZUNGaUFPNDhRVXVB?oc=5",
+      "time": "2026-10-29T05:15:26.000Z",
+      "source": "Yahoo 財經",
+      "title": "EPA稱特朗普放寬甲烷政策對原油價格影響或有限",
+      "link": "https://news.google.com/rss/articles/CBMi0gJBVV95cUxON3lIZVYyWkdRZXpYWVpPWVl2YmZ0RGx6V1JVOGhueHVVX0NiS2g3NXMxdnFDaGxYMlpvMjBpaDJvRzZVQ3dhUkFvVmVBem1KZVN6REFfYUZaNXJyeldyY0Y3VEtuYm1jM1hzRV9jbm5OYWlUS21mX3lzaUxRVmFPWUhHazdLWjh6Z282ZlN5dlI3ZVhHZkVJaVdqNkJTSGJvbmM1djNYdkhMeWZSZlZiVTZWZkRicjVpb3RnYURkc3VpSU1uMDd1RVZwNjJEWkJoZGdodjBIV2lwNnIzMzBxWTcyZkRtbmU5Wmh4LXpZa2g4aElrODRNd0tpRVBjMEU5R2FqVGMzMXdUVExoaGtfcEc2eVVyQjhZMlNualM5VkpwZXVWYkEtSzVJeS1mRmRmb1NablNQZElveGV3WlFrcDVDMlpVRWtfMUFQbXhSS09udw?oc=5",
+      "sentiment": "neutral",
+      "score": 0,
+      "topic": "原油與黃金"
+    },
+    {
+      "time": "2026-10-29T05:14:02.000Z",
+      "source": "Yahoo新聞",
+      "title": "賴瑞隆攜手高雄隊站路口 力拚「黃金十年」",
+      "link": "https://news.google.com/rss/articles/CBMiogJBVV95cUxPTW9UU1M5UzM2cEtuSkFUX2w3Z09vY0VuTk1Rd0lVUkpzR0JseVdUdm9vNWUzYjZaYllSR3ZYYTlaZ2VIZTl1V3pURVJwb1M1aDVCNFZWSmdmTjFvS1Vad1R6QnJFQXJRR2Z1emFGYTQ0cWRINEtabjhScms5akkyMEIxYW92T2w3S3VCSmJqMV9kNFNmQ243a1lJMTVzcU1weWdwclFFV2tDcExvZGhDdmxxRnpFamN3dzgyckJFVnF2dWtuOGJoUFlEUTZsdUdPS1c1dXBiY255TlUzUTI5Q3dYaE8tOHB6Umg3YUVEWVhsdzlrMXZUVElFTmRtNzhGcThTVmtpX0VjMG9SSF91Q25oX080SnNfRy1kYUozc0p2QQ?oc=5",
+      "sentiment": "neutral",
+      "score": 0,
+      "topic": "原油與黃金"
+    },
+    {
+      "time": "2026-10-29T05:12:41.000Z",
+      "source": "運動視界Sports Vision",
+      "title": "從綠茵場到絞肉機——那一腳踢碎了南斯拉夫，也重塑了地緣政治的體育史詩- 足球",
+      "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTFBxTWZCd2xxNE44b196TXNIQVd4RjNMNGJIRzJkYWRXQVlBQ29OWEJaNkNmdHYwSklUTklVel9Hek4zaUxhVThsQ3pNUE5WbGRN?oc=5",
+      "sentiment": "neutral",
+      "score": 0,
+      "topic": "台海地緣政治"
+    },
+    {
+      "time": "2026-10-29T05:09:51.000Z",
+      "source": "CMoney投資網誌",
+      "title": "美股財報揭露AI資本支出隱憂，牽動先進封裝供應鏈，台積電遇亂流-財經焦點情報站",
+      "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxQZjhQU0tVa0V3QXllUG95MnJUSUV4eW9VdV95TmNGX21pbTB0NkhLQWVJLXZmWWI2bS04aVE0ZG4za1JDLWU3cTllbTlSc3dPV2VFbWYzVXVzTHkwMEg2OXBGbVNUNEN4a0pOTUFoaTlHVEZpa2ZPU0V6bXF2XzlRcUVR?oc=5",
+      "sentiment": "neutral",
+      "score": 0,
+      "topic": "AI 晶片供應鏈"
+    },
+    {
+      "time": "2026-10-29T05:08:00.000Z",
+      "source": "FTNN 新聞網",
+      "title": "Google TPU大單要來了？金像電PCB衝40層「5檔台廠」受惠OpenAI傳搶買、甲骨文2027年導入",
+      "link": "https://news.google.com/rss/articles/CBMiS0FVX3lxTFBDcVJDSThjbDU1SmNEMmxrOEZ5N2F0aGwtQlhOR3E1OGRvUlR6cnMybnQ4MWw3T25Dai1aU19WekM3YVVsLXg5NV9SVQ?oc=5",
       "sentiment": "positive",
       "score": 1,
-      "topic": "利率與通膨預期"
+      "topic": "AI 晶片供應鏈"
     },
     {
-      "time": "2026-10-28T22:10:50.000Z",
-      "source": "鉅亨網",
-      "title": "警戒四大通膨隱患！機構估Fed明年底前將升息三次",
-      "link": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE5QMWd3NGQ5dno4ejgxWDlGRU4tanhzRWxWcHRhTGtyS1NodmZLNkxORG50WUN5eEd0TUJ6S2xudE1NTExnMGZTOTZBTERxWDA?oc=5",
-      "sentiment": "negative",
-      "score": -1,
-      "topic": "利率與通膨預期"
-    },
-    {
-      "time": "2026-10-28T22:09:00.000Z",
-      "source": "TVBS新聞網",
-      "title": "Fed利率維持不變！聯準會會議5重點一次看：華許預告會議數縮減",
-      "link": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE5vMHk3VFFXYlRRNjhKaUpPQ2wxYzU3QlZOSmx2aF9wMG5WeVcyclN4NEMxQW5RazZLVThWaFY3RXhCTHJGZ0pHUWRJTzdvWFU?oc=5",
+      "time": "2026-10-29T05:05:05.000Z",
+      "source": "MoneyDJ",
+      "title": "MoneyDJ新聞 2026-10-29 12:40:26 新聞中心 發佈",
+      "link": "https://news.google.com/rss/articles/CBMikwFBVV95cUxOdEcwSnRsRHVvamNrcmNmVk5SaWgxV3hzYlhBcDAtN0VPSTJONTZLa1hDT05uNXVScjd2WnBJb0Nya2ZHNzJRa1VnRWdyWUJkREVfZ295Sm0wbjE3cGtSN1gyQ2ZNUlBPX3Y3a0NRWlM3S3ZrNk45a2dPV3U5WTl0Nmw1MFRZb0hiYk1vay0wdjhZeVk?oc=5",
       "sentiment": "neutral",
       "score": 0,
       "topic": "利率與通膨預期"
     },
     {
-      "time": "2026-10-28T22:06:57.000Z",
-      "source": "民視財經網",
-      "title": "川普稱進口機器人威脅國安 暫不課關稅先展開談判",
-      "link": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE83YmFwOHUxdDFCX3p0VFloTDNqSDFJQ0VWTzlobmQ0ZWUxRzN4blBNR3lVblVIamFQdUdnOWNucV9lS3h5ZGFMVGNMUlV3YjQtX2FQNFV0d3hGc0N2OU1wSkZLVFB6QQ?oc=5",
-      "sentiment": "negative",
-      "score": -1,
-      "topic": "台海地緣政治"
+      "time": "2026-10-29T05:05:03.000Z",
+      "source": "Yahoo新聞",
+      "title": "豪華郵輪逐客令 油價狂飆無法承擔",
+      "link": "https://news.google.com/rss/articles/CBMiiAJBVV95cUxPdzAtdkJaZmJFZThlc2FpQmNCTzVYYmx1RzRYaE5EV0pTOU42MU9HTWpXRDZLYjlOakFCQ0RMZVdBUW5paG9PRGVleEpfeGdwLXlUM2FTTkUwaFFjRlRtdjRudVpQc2ZHY2lmWWNYNnF3VFN5V3o4cmJqcVBCQXFzWFZDbWFFdzEybHk3MjhWeDlSc3Y4dkJ1U1VPUnVxWUlOZXlmcmpZakw1LVkxYWxBX1pBT0J1MXRIcjZWYzRUVC1WU3NWbmY2eFZIWDEybWRJX2VjczJGMnFBUHBBbWZuTWQ1ckpzMkJTbm5MVWI4YkZFQi0zV1JlbGs1dTFPQmNfWDZmN2ljV1Q?oc=5",
+      "sentiment": "positive",
+      "score": 3,
+      "topic": "原油與黃金"
     },
     {
-      "time": "2026-10-28T22:06:43.000Z",
-      "source": "UDN",
-      "title": "Fed 決策／聯準會暫停升息市場不敢鬆口氣AI熱潮、油價牽動12月決策| 全球財經| 全球",
-      "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE5PNVZYTkl0elNTUGViSXp4ZzgwSl9kTHNodngtdTR6TkptbWFxLUF5VWp5UEVfTFhKT0N6WDUxdFlQdjZRLXhaYVBNM2J4QnI2?oc=5",
+      "time": "2026-10-29T05:03:27.000Z",
+      "source": "鏈新聞 ABMedia",
+      "title": "AI 造富潮席捲中國！DeepSeek 梁文鋒身價 2800 億躋身前十",
+      "link": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE5OQzZkOFg4Q2V0RjFqdGpSWjJ3ZW9CeDEzN29qLTdPbXAxeEwxYlN2cGNPVU5LdC1ienZYRkducnd2V3ZId0ZFSlhSVTZFVjVCRVZicnRtMmQwNUhU?oc=5",
+      "sentiment": "neutral",
+      "score": 0,
+      "topic": "AI 晶片供應鏈"
+    },
+    {
+      "time": "2026-10-29T05:02:14.000Z",
+      "source": "Yahoo新聞",
+      "title": "聯準會不升息！期中選舉前按兵不動 華許駁「政治因素」｜#鏡新聞",
+      "link": "https://news.google.com/rss/articles/CBMihANBVV95cUxOTFh6TjFQSmJHTHFqS1JVTml2RVV4VGxtUGRfQXdwQUJXVnY0SnVGWlNBMWJpZjlBWEcwUk5aYm9Ocnpycm9XNURuUy1XdF9qbUU2Rmw2cHJncVVuQmR5NXNuNTl4Qm1sbUdIVDRPSm92ZlNiV2FEbG9YMHRlZWN1NUlYZFMwVHJVS0wxRm9WNGZydk1MRlJtRlRRVWdUdlZVQi0zOEpJbmthMThfWlNFUkRXUWR4UmkzUUZCRTlkWmFwOFpSNU9uUThLaU5aWldWOXUtcjk3b09ydDNHSkRSRlFBTGdTTlJtM2QyczQ2ZHFjTVdUb3NhaTJlQ2Z1aC1qeDB5Q1BOR0l0MzFaaElfM01ob19ON1FON1VlSFBra1Y3SVdRaGYxVE1pSE14XzRiUUhSSlBsWWRZcEk4N2FhOEtoS2FGS0lValdvTGZmRE9EWXI2ckRrRm9BOVJ4SzlxU01KQWI0UjQ2T2o2QTlRZ0FoOExUSGk3TEFHZ2FyQjdKMXZf?oc=5",
       "sentiment": "positive",
       "score": 0.5,
       "topic": "利率與通膨預期"
     },
     {
-      "time": "2026-10-28T22:00:27.000Z",
-      "source": "CMoney投資網誌",
-      "title": "AI泡沫還沒破？從Fed利率攻防到Nvidia併購風暴 華爾街押注「雲端＋晶片」新權力戰",
-      "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxOSWtRSDctQ2kxemlOUUhVY3FhVmJCcm5EbGszeHdGclJ2UWdEbXlqSndld2taTW40RmZtam82djY2djBrQXBNNUZSTDVROTltOHNMRTVVTEtrZ2xieXFuYXY0YWg3d2dxaXlUblVvSFFxTWpnc2NUVGo4UjZPV2hTQW9TSVpkQ1NvWm5lRXhB?oc=5",
-      "sentiment": "neutral",
-      "score": 0,
-      "topic": "AI 晶片供應鏈"
-    },
-    {
-      "time": "2026-10-28T21:56:57.000Z",
-      "source": "民視財經網",
-      "title": "美聯準會宣布利率按兵不動 維持3.75%至4%區間",
-      "link": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE5xS0l5SXoydk04bVBDY29oWE1pSVV2TzJTYW1mZ1VpU204M3ZWdzJQWkFYelZTcEV3MXFXMzdlME52eFpySzgwUWFTUFotX3hEU3ZaNzEyT3lYS1Nzamo1Rk81cWdKdw?oc=5",
-      "sentiment": "neutral",
-      "score": 0,
-      "topic": "利率與通膨預期"
-    },
-    {
-      "time": "2026-10-28T21:56:00.000Z",
-      "source": "BigGo 財經",
-      "title": "黃金跌至4,048美元，Memiş拋出「秘密計畫」說法",
-      "link": "https://news.google.com/rss/articles/CBMiekFVX3lxTE5EN2lRSU5yMnFFeW9DdzZ2WUhLOFBFSG9yUXM5MkhMOFc2X29QeVJmWDdtSmI5WWM2c05LNks5Tnl2RE1LTGFGMmpzZ0llUEtJVnpIdWppQmdVblprUzhIYmtmdzhia0YwRXlMaGF3SmhxV2w3U0p5eVVn?oc=5",
+      "time": "2026-10-29T05:01:04.000Z",
+      "source": "UDN",
+      "title": "Fed 最新利率政策出爐 國泰世華銀行：年底和明年3月升息機率仍大",
+      "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE5ybDlkYjJoQ2xtWW9LQXNmcE8wWUJtSzJoSEl4dHlVbHJMWDVwRDlWQmQxMWNuYzJ0Y09laXR3bmlZd1YzWmYxS3JBNkdDU2tK0gFWQVVfeXFMTW9NQ1NvUEFpUlk1dUZEU29zM2RESndUOUNuVFpKckVDc3BmTXpEa0ZoR3o0djJ1cUNUYUpvNWp4T2syMkV1M2VCSmV1WXhidzlHeE82eEE?oc=5",
       "sentiment": "negative",
       "score": -1,
-      "topic": "原油與黃金"
-    },
-    {
-      "time": "2026-10-28T21:55:24.000Z",
-      "source": "中時新聞網",
-      "title": "美期中選舉前Fed利率按兵不動 美股收紅、費半大漲1.75％",
-      "link": "https://news.google.com/rss/articles/CBMibkFVX3lxTE1xNTIxMDQwUkVDTDc4RW9mckJ4VnRoYm5mSW41M1REZU11Q1JRYWFVNmtmQzBZbV8yVWx4MkZnZElkVUpQYlZCaVdvY21BUkpQOTlMdFprWmZ0WmppSGpEUC1VTDVyanh5MUVBZlhn?oc=5",
-      "sentiment": "positive",
-      "score": 3,
       "topic": "利率與通膨預期"
     },
     {
-      "time": "2026-10-28T21:55:00.000Z",
-      "source": "香港電台新聞網",
-      "title": "油價升逾1%至近2%",
-      "link": "https://news.google.com/rss/articles/CBMib0FVX3lxTFBKOGZVWVo1RXNEOGdSQmxVRjdvOG5JeDV2eGVBR0oxVWhFQi1iLWdoNWE2OXdZckN5Q0RyTXFUdHBmekY1SEFZNEVscm9aT0J1bWRoZDhLYUloNW5DVFdfR3ZONWpFV1Vjc1ZCZXdvQQ?oc=5",
+      "time": "2026-10-29T05:00:00.000Z",
+      "source": "寰宇新聞網",
+      "title": "聯準會利率維持不變！華許強調決策不受政治影響",
+      "link": "https://news.google.com/rss/articles/CBMiVEFVX3lxTFBZNDlMMnotbmlodFEzQlpxYnE4SGk2ZjRpT29aZkpIaUotUVEwVlUwWEw5b1g5SDdSbzZhY1VzMXp5aGFjTkRWRzlvZUZXNUxyN0lRSw?oc=5",
       "sentiment": "neutral",
       "score": 0,
-      "topic": "原油與黃金"
-    },
-    {
-      "time": "2026-10-28T21:52:00.000Z",
-      "source": "Yahoo新聞",
-      "title": "Fed維持利率不變！美股4大指數全收紅 費半漲201點",
-      "link": "https://news.google.com/rss/articles/CBMitwJBVV95cUxQajMzdGEyVE5aRFRoOE5NVzB3RFZPdFZSS3NDYURKTU96bmhmVGdpc1dNMlBJUGd6aG1lQWNzTGhNU1dLdG9xWXlwMUt4T0lTY3R3dm5mWmx1Xzdya2E2VFo4MHRUTnloUUxiak96OHp5VzZfSDVPRGRIMEVTT21POEdYcjk3UUk4RG5xb1hKbjFsZmN6RzEtekxqMXNZNldad25iY2xZUWZObGVHQ2xiMld6YXB4TUNNSFBick93dUkxNVVqWTM1UDlvdTBFWm1kVVRwOFh3MnFZOUloSVkyTXlBOTJyNHE2aXc2VEZOaW1GSlVqWTd2Z3NnYUZXLUdnTXdndlphV2h6RXM3MTlCYXhnbHJFOXg1cHpka0tUYml3VDlNVVpsai1aV1dIaHZ3MklKcVBSMA?oc=5",
-      "sentiment": "positive",
-      "score": 2,
       "topic": "利率與通膨預期"
     },
     {
-      "time": "2026-10-28T21:51:08.000Z",
-      "source": "鉅亨網",
-      "title": "〈能源盤後〉葉門戰火延燒 沙國煉油廠遇襲 國際油價漲逾2%",
-      "link": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE9KRGJpLVZvSng3TU0yX3lDYnZrSjNvZWx0VW92QzZ2MnE2ZmI3bmRhZzdqZ19oUnpSVXhsY25HWDhFc2lwVmQ4VnVkTlo0Yjg?oc=5",
-      "sentiment": "positive",
-      "score": 1,
-      "topic": "原油與黃金"
-    },
-    {
-      "time": "2026-10-28T21:48:00.000Z",
-      "source": "Yahoo新聞",
-      "title": "台股1檔今「抓去關」！它踩4大警戒列2分撮合 關到11月6日",
-      "link": "https://news.google.com/rss/articles/CBMizwJBVV95cUxNZ1FUYmdMQlFSN284UWFxTmhUaDdjMHk3OUpEZzIzSDVEQkMxdm1BVUlYUlNmQnNnUlhvN3I1WXU1RWppY3NyQU5HQm5PWGJyN2I0aGFUVkhkZ0RqZElVVm1RRTBCalVDLVRCYTNmTzFiM1lhYmlLYWxEQkVlOFpFcmY1X2x3MWp2TUJWdzdGZGJpMV9seUhoWkFqeC1rRTNyVGMwOFdjYzhUQXlJZGRpdUV2dW5qVlg4cE1MejF3aVRlSGsydXlUbTFyZXNMM0NEalRWQmo1b3diN2Nhc1NtUnBUbXY5OGMwOUVidFNxS2N0bjVyaGZsa3R6TzBRV3JGelZSbEVnMjVENlJjNVhfbU5hbVM3TE1rS284V1R5U1o2bmkxM2o2VHBzSjVlSXpzaDZORk9TNEluQTZWejNIZW83c3BVeWJNRFZNQkhuVQ?oc=5",
-      "sentiment": "neutral",
-      "score": 0,
+      "time": "2026-10-29T04:58:18.000Z",
+      "source": "UDN",
+      "title": "台股重挫近千點到底怎麼了？分析師曝三大利空衝擊下只能這麼做",
+      "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE5OXzBGX3gwTDZaS0l1UHd5Z1plMnVjeUdHaWRNeVhlbnlwQURWTXVLYzltV2xPZTdrVVl5Q2RncUQ1WlJDQXh3NE9GVjRlb1Y50gFWQVVfeXFMTVZhSll3cmJua290NUNHLWlJMlBINFljZnpzUy1meG9CUlBVaFBFQi1xN3R2WGRIWFJsbWtLX21aR1g5SDhFZl9KUTl3V3gxcHJtRnB4aFE?oc=5",
+      "sentiment": "negative",
+      "score": -5,
       "topic": "台股與資金面"
     },
     {
-      "time": "2026-10-28T21:45:30.000Z",
-      "source": "自由財經",
-      "title": "美股收盤》Fed維持利率不變！道瓊連3紅 台積電ADR收高",
-      "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTFB6WF9idF8xQ2pWZXotWDJ2eUdwQVYwMkNzcW9QTFJmWkgyYTBPUFZuemxQZnFBNkprRUJWQWJjTGlYUDBvZHd5ZkNIeERrdmxrY255eDVPVUlSc3Q4RVpV0gFkQVVfeXFMUGtrNkJfeUpmbHBJUkprbDFSYTBDN2RTNkRQX0Qzald2dUZDdXZleTl4S0FQNVlocGt3Y2pEc3EzVHE4YkVUMmF2MmZUUkZ5Y3VwM1h3bEtKYzExbFItSDZ3VEJKbw?oc=5",
-      "sentiment": "neutral",
-      "score": 0,
-      "topic": "利率與通膨預期"
+      "time": "2026-10-29T04:53:41.000Z",
+      "source": "Yahoo 財經",
+      "title": "瑞和數智(03680.HK)售38.76枚比特幣 虧損20.24萬港元",
+      "link": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxPb19rRlhwc0RpZzl0ZWhnNEVlMnhTMFBHOTRXV2VvWkxSYXRkcVhzWGstRUdRUXVNbkpVOExyQkRqbVZWOUJYNUpaVFJRSU9GLXp4UkhiNFVWalZmQmdOUVl3bVRTYk5tcWRqM0k3MnBKRDh2OG4xOEFjN2s0NzN5cWxJcTl0YkhPMGUwY0lHNUZ5UDl2dEU2ejkwSFhpeG42WERYUm1saFFlVDlqaGZ1QXNtSWRjeElveU5vNWJBU1BDQkpCdjJHUVBHVlFqZEk1cFlZVG5uYmFwR0wyVlE?oc=5",
+      "sentiment": "negative",
+      "score": -2,
+      "topic": "加密貨幣"
     },
     {
-      "time": "2026-10-28T21:41:43.000Z",
-      "source": "鉅亨網",
-      "title": "〈紐約匯市〉美元走貶 Fed如預期維持利率不變",
-      "link": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE9ta040NWRRYVg5OUQwbV9qR09mYzBIUk9oWTZQTGViUXhITVVJMUFLTWhVZlpkelVjSXl0N2VmSFJscGZHQWFmMWt6X3ExelU?oc=5",
-      "sentiment": "neutral",
-      "score": 0,
-      "topic": "利率與通膨預期"
-    },
-    {
-      "time": "2026-10-28T21:40:12.000Z",
-      "source": "鉅亨網",
-      "title": "《路透》：輝達129億美元收購Hugging Face 遭美司法部質詢",
-      "link": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE5rc0dmRUZpVExLWkQwaERyOHRuMUVqc190V3hBZ21SU2JxYmpfQkF6YzF2enR2ajdCTldBX25hVjBSMkVodEQtRVJNUjR3QjQ?oc=5",
-      "sentiment": "neutral",
-      "score": 0,
-      "topic": "AI 晶片供應鏈"
-    },
-    {
-      "time": "2026-10-28T21:39:45.000Z",
-      "source": "UDN",
-      "title": "聯準會維持利率不變美股收高| 全球財經| 全球",
-      "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE8xUFJMRWVOUkdwUWZkNmwtNGVidkxoMmdJVnZBRk1SYV9qRnRZS0ZKOWhsaDdMZE95SlhOSERocW5LX0szZUdQWXpPVFV4cjBG?oc=5",
-      "sentiment": "neutral",
-      "score": 0,
-      "topic": "利率與通膨預期"
-    },
-    {
-      "time": "2026-10-28T21:38:00.000Z",
-      "source": "自由電子報3C科技",
-      "title": "蘋果M6晶片Mac新品今預購 MacBook Pro AI效能快13倍 iMac繽紛7色選擇一體成型",
-      "link": "https://news.google.com/rss/articles/CBMiR0FVX3lxTE1WZXNYaHNzbVRMZjNiOFgycUVEQ2xZQkVsaUUtOHQydGtSamhuY3JRVkYwX3ZRdU1NR1hUTUEzbkZXbnNEOFh3?oc=5",
-      "sentiment": "neutral",
-      "score": 0,
-      "topic": "AI 晶片供應鏈"
-    },
-    {
-      "time": "2026-10-28T21:35:40.000Z",
+      "time": "2026-10-29T04:52:58.000Z",
       "source": "經濟日報",
-      "title": "Fed決策／利率按兵不動、12月升息未明 聯準會決策五要點一次看",
-      "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE91TVpVWmw5dUQ4WWs5dHY1U3p6elNBRmJvMVZfblRIWjduc2g2YTNQbldFRFYyQjBXa3FlQ25NbnZZQnZBNnBSd3l6c2dRTFhUellycXNtYnFyd9IBX0FVX3lxTE9rb1FCakpuMzhRcS0zUVlId2dCdUlvOGV5X0RubG5xQ3JsVUVGWnJleFNLSUdiakFqX2dJZDUtTVR5a09tRG9jUWIwRDg3ci15SXdsVnl5TWRmVzBnLTcw?oc=5",
-      "sentiment": "negative",
-      "score": -1,
-      "topic": "利率與通膨預期"
-    },
-    {
-      "time": "2026-10-28T21:35:00.000Z",
-      "source": "BigGo 財經",
-      "title": "美國聯準會維持利率不變，美元走軟 12月升息機率升至85%",
-      "link": "https://news.google.com/rss/articles/CBMiekFVX3lxTFBPSDZLVTlCMW5IYk9Lc0xOS1ZyWk9XYjZId3lGTFNpZWtTekJqV2prVHBJVDBWMmV5RTNtYXpJa3pFUHhNUi1KSTRzVGx5b1JsYXhhZFEzNjZDbzVsSm5KSERjU0JkZjcwVC1qaTE1UnBUcGk1YXZlOE9n?oc=5",
-      "sentiment": "negative",
-      "score": -1,
-      "topic": "利率與通膨預期"
-    },
-    {
-      "time": "2026-10-28T21:35:00.000Z",
-      "source": "Yahoo新聞",
-      "title": "【盤前】記憶湧上心頭！外資吃回頭草 加碼「這檔」6.8萬張",
-      "link": "https://news.google.com/rss/articles/CBMisAJBVV95cUxQU0tIdXpCYWg5QjZ3RE0zS2V3dDhONGNyU2d1RU1sVXZvNlI4WjVNZkNZbmhtWWladHFuZTlYdmNpcVduc2ZnS1JsT0NUNVd2eDRkZlRlcDAwYWFaYmltejQ2N3NPMndmaE9obzh4bFFBYXVVdmxrY0V5UE1wdVpJU3NhR2s1LW1aX0o3NnlIbjVnazBmTlFwWnR0Umd6bEwwTlBKTG9hSzZKbW0tME9DNGxKeGtHT0NqMGJhX1VLVWRaQ0lKTVVLdlhfZ3dSbTJqa05ySkl1U1ZVWVBSaUlxdWc2V0Z6eWZHSmFkcEJGQkp1MnpWbnVmcGJPVDZCWXhhUk9OdWRyQS1vMk1OWVJGNnlpM2traU1tam50VEpiS0ZNNmYxbnFmY1lqWjBoMmxX?oc=5",
-      "sentiment": "positive",
-      "score": 1,
-      "topic": "台股與資金面"
-    },
-    {
-      "time": "2026-10-28T21:35:00.000Z",
-      "source": "BigGo 財經",
-      "title": "泰國最高法院認定比特幣為財產而非貨幣",
-      "link": "https://news.google.com/rss/articles/CBMiekFVX3lxTE5sYjRqckd1OHpjUTJiQk1JTmdkdGNabU1ZaTBPZU43QVdCc1pDSmxIUnRDa01Cakk4cUFjS29fYUx1akpFOVFNRzZaX2ZZeDJuN3dKUXlwUEZWZkpkakRhUEpjbWpMM3BwY2gwa0QxX1pWcG1YWHJJS2NR?oc=5",
-      "sentiment": "neutral",
-      "score": 0,
-      "topic": "加密貨幣"
-    },
-    {
-      "time": "2026-10-28T21:30:06.000Z",
-      "source": "自由財經",
-      "title": "聯準會維持利率不變　美股收高",
-      "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE1zSkhlNnN5U3V5RWZLc0MyRW9NeG1nVVYtRVlQRDB1NXNxR1VCak9MdUpLb3JMcG5Oak84YWhUNndlQTU0UFdjUDdlOGY2Nm9xYnpaZV9ZaTd4TjZGRWxV0gFkQVVfeXFMTzZ5WGFBaHViUC1uanhwaXdrRy1jZHFVZk0zOHlIR0cyLVZXeVBpdzlDUVoxUUs5VTk5X1gtaVl2dlZkeGRCZFpybUxuQWhfRm9ER0pqMjF5Q0dSNHE4b0NTbVBfVg?oc=5",
-      "sentiment": "neutral",
-      "score": 0,
-      "topic": "利率與通膨預期"
-    },
-    {
-      "time": "2026-10-28T21:30:00.000Z",
-      "source": "自由時報",
-      "title": "日德領袖會談 強調台海和平重要性",
-      "link": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE9MUGwwZW02aFVjRC1GUmpfRXpMb05CY1dLUFhYeE5vZ0dwLXBZMFB3YV9tNzkyVy1GYS1IczE1dDNDV3dTVnpTRzJYYURPSExoTTJSWXFSaWVfUGgx0gFiQVVfeXFMTjhYUVI2SEdaUEk0UXVEM20xM29tb3lkSFNlV2xEMWlsSjVLTndYeUZoTmFfUm5mR3k2aERWcnFHaTZid3o4azdkYUZSWHJJVzRlY0p0WkJLcmRwN2VZRHNad3c?oc=5",
-      "sentiment": "neutral",
-      "score": 0,
-      "topic": "台海地緣政治"
-    },
-    {
-      "time": "2026-10-28T21:30:00.000Z",
-      "source": "Yahoo新聞",
-      "title": "楊金龍︰外資更青睞台股 「柳樹理論」護中小企",
-      "link": "https://news.google.com/rss/articles/CBMirwJBVV95cUxQaklJSWx2X2dGM3dQbm5GRi0yODRuZ2RiY2kwczVhRFB1TkpNaGptQS1wcHNhNGVjMEFkNkhsRWZVczEzTDdQNHhEOFhiU203M0hoUUVPQmNob1NfMFZOcElpUjU3RnR1UlZNRkcxcE5jRHNUWFdzcG5idUdLZmV3NlNjSmhsTXl4ZHMxTmhyeGRjdWdLOGQ0VmFlOHBWNEtaa2VrS0JFbnJBTFFFTFJFSkNHdHFNZW9EdEhqVTBFV21NWl9KUzhjNFdYUzRxOUVjNl9uU2ladnBuN0Z1ajB3cl9mQW85Y2FQWnNFeThUOW1hU2hiMF9SckVpUUVwSE1wbW5kY0d2enhTN0pJdWNvaW52eU5pbmc4Y04yZ1k1MTlkTjRrYTZacmxqSWFsUlk?oc=5",
+      "title": "台股一路南下 兆豐美國黃金ETF 009832 逆勢走強成避風",
+      "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE5MNlNKbDB6enNDSGQwbFBsYjAxa1VWTzd3RkJYcHctNUJLdWNYenhlNi1IV21qRmRXcXZfeG1RdGwtLTNuVWJCMDRJTFBxV2toQUZtU0JEcHN0Z9IBX0FVX3lxTFBrQ2d0ZDRDNlF1bjRhbTZGSXVDdElCdjY3cmt0VVQ1TnA2RnY0N2daeFVweHRJQWc4M3VHVW9xa3NvQmttZFNrMVVKaHlTNU5yekVmZjNGY0NPOVR4d3Rr?oc=5",
       "sentiment": "neutral",
       "score": 0,
       "topic": "台股與資金面"
     },
     {
-      "time": "2026-10-28T21:30:00.000Z",
-      "source": "鏡週刊Mirror Media",
-      "title": "外資吃回頭草　加碼這檔6.8萬張",
-      "link": "https://news.google.com/rss/articles/CBMiXEFVX3lxTFBLNWRqeUF2el9NS3JqckdyTU9jM3Zxb0VnRDV6ZXYzUFNldzVaLXRtOUZkSmhMX3FFU1dNREFQeVVtd1lWNE5yMVoxUFdKVEFMcTdEWlZUS1I1QTVI0gFiQVVfeXFMTThKR3h5d0tyaXoxZWZYX3RhV1dqMTR6YXVrdUxIQm5DUTM0UlFHZTNLN05nWkVoR1JIWEdqdW5ucUkwWVdKTWh2R2wyVWZlYUlFeUJodTE5UzA4RERaNGFxbkE?oc=5",
-      "sentiment": "positive",
-      "score": 1,
-      "topic": "台股與資金面"
-    },
-    {
-      "time": "2026-10-28T21:22:36.000Z",
-      "source": "鉅亨網",
-      "title": "一文掌握Fed重點決策：2張反對票、減少利率決策次數、物價穩定優先",
-      "link": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE0yYWRCa0lickhCZnFNVTl5RWFSUjdQa3BhQjdLd3V0SmxjSWpMUlVlWXpZTkxGZHdZOUlyMDA3eUZEVFAyeHF6bmt0WGRXSXM?oc=5",
-      "sentiment": "neutral",
-      "score": 0,
-      "topic": "利率與通膨預期"
-    },
-    {
-      "time": "2026-10-28T21:22:30.000Z",
-      "source": "鉅亨網",
-      "title": "貝森特鬆口：Fed若再次升息 「未必」是個錯誤",
-      "link": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE9tblZ2ejVXeUNGeFhlR0xiZ3BkbmZISzg5WnVTdXdlZTQ5TDZGOVBHNTlqR3VITkNhd05oOUdRakFucjBPZmNCLU1TY1hKTGs?oc=5",
-      "sentiment": "negative",
-      "score": -1,
-      "topic": "利率與通膨預期"
-    },
-    {
-      "time": "2026-10-28T21:20:03.000Z",
-      "source": "Yahoo股市",
-      "title": "〈貴金屬盤後〉Fed在美期中選舉前按兵不動 金價隨油價上漲走軟",
-      "link": "https://news.google.com/rss/articles/CBMijgNBVV95cUxONzh6U2d3UEVSbTYycENpTm43ZEY0YXNDbW5QRU95dmlrWTFCekNnSzliVTNkajVxcXRpZEplRmNNNWkyZkw5TDMxS3VnSEVTTzQ1LS1lblVIQkxzc1VKelQ2SDFKYkI3UVRVY3ZoWHloUVdjclFOZFZxcTNucHY0QUlsWHlkY1VUSXBUanQyVVVpTE1PVlVOaU01bFdGMnBHZUVJcW1EUF9TbTFfMjZ2bHlKdU93UjdKSjhmY25iZ3NESnp2ZFJvcWhKM1VsQVY5U21xNllIUU9xTGQ4bDVyNVo0LUJ5azJqeS03MlVhSFRsOEotOWltUDZFUVpYNi1WRzE1WWxBRjVwak9WRzZsSUhCUU5YY21yYXJGeFBEYzRwckZZaDlEc3REbzVLd3NNb2tCVXBYRUs3LUxJb1FjRzlBQkVTMHN6UC1qMEUwQXRaRjBPTEY2TFZ5UFZCNHFyWWtNcmg3SGdjS3Y0WnJoM1UtaGZYZVRaN2kzSEtLU2FqQmFScHFKeDlZaEpQUQ?oc=5",
-      "sentiment": "positive",
-      "score": 1,
-      "topic": "原油與黃金"
-    },
-    {
-      "time": "2026-10-28T21:16:52.000Z",
-      "source": "UDN",
-      "title": "Fed 決策／10月28 日會議聲明全文| 全球財經| 全球",
-      "link": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE0wS1JKQWQ3c1dONEtoQU1WUklrVDBKQTU1V2lYaHBZNkFldXlielBqZTFrTlFqZDJEbFNxTGtycTl1aHh1a1FGUUpzSGx5UkU?oc=5",
-      "sentiment": "neutral",
-      "score": 0,
-      "topic": "利率與通膨預期"
-    },
-    {
-      "time": "2026-10-28T21:16:01.000Z",
-      "source": "鉅亨網",
-      "title": "〈美股盤後〉Fed按兵不動 三大指數連三紅 SK海力士ADR、甲骨文狂飆超10%",
-      "link": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE9DX1VDbG5TSVJlR1FUZGpLNXIyaGZYQ1hNd2xEeXpxVXFoRDlPWGtjYVFOckVVNE1WbEpudl9JOWpTMm1UT2FoTU5fMEs1WTg?oc=5",
-      "sentiment": "positive",
-      "score": 3,
-      "topic": "利率與通膨預期"
-    },
-    {
-      "time": "2026-10-28T21:15:00.000Z",
-      "source": "Yahoo新聞",
-      "title": "【盤前】三大法人砍逾1萬張！國家隊砸5242萬救「鞋王」 終場仍挫2.7%",
-      "link": "https://news.google.com/rss/articles/CBMi6AJBVV95cUxQT2VQbENrVkFqLWcxX0hNa2kwS3l2ZGJuTWkxdDZ1WUVLdGxJbnpHTm1zLUVlYW9QVlhtU1pmcGw1Wjh2cE42c3hjLTd1c29NX3d0eWlQTXdmWVNxemk2Nnd2emkzMHpCMzJ2d0c3Z2h3TDNjOUhPdTBxNXM2YnNmRk50VnlNazZFSXBiakVkdkw1dWhmdW9qSXowY253M2tKd2hoSVBBSFNIV3hpam01eW05cDZoOHk0ZE5MQXgxazRkZko1QXNRVkFQX083YTFHMVlpTG40MndSNF96THlnQmQ3RkpBazZxbHlUZndybkRDSjE5bG9DVy04SnNFTVV4N1JEWGY4aXEtNXlzeVBPUnFoa0ZEMTQ2LXc2cHN0T3c5T3c3S0VycXBBUDV4cHRuMG5Tckt1dzVMN2FlU2hsdV9xLTFnTjRXNkhDbXlKU2J5aWVQVGc3YnhhOEJkTFp0ZTQyUlI0ekg?oc=5",
-      "sentiment": "neutral",
-      "score": 0,
-      "topic": "台股與資金面"
-    },
-    {
-      "time": "2026-10-28T21:11:15.000Z",
-      "source": "鉅亨網",
-      "title": "Fed按兵不動、鷹派不退！兩官員投反對票 市場估12月升息機率逾八成",
-      "link": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE82M0dLT3FVVEw2M19HM0dkQl96Ym5pb05qLWwtMkZ0dkh4SjNxLVlVTjFRbU81ekxwTFMxNFpqQ3A2eTdJVkNLcUJ3aUxpZ3M?oc=5",
-      "sentiment": "negative",
-      "score": -1,
-      "topic": "利率與通膨預期"
-    },
-    {
-      "time": "2026-10-28T21:11:00.000Z",
-      "source": "鉅亨網",
-      "title": "沃什：通脹水平過高，對金融市場波動不感到意外",
-      "link": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE5RVHQtYkdYSU9lR1lra3F3MEExcjRkaGpPNUEtUVlZSzV5UVpQWUNhM3p1SzRYdWthOEkydEEyQXg0X2tJTHJzTFdLeGlWX0U?oc=5",
-      "sentiment": "neutral",
-      "score": 0,
-      "topic": "加密貨幣"
-    },
-    {
-      "time": "2026-10-28T21:10:09.000Z",
-      "source": "鉅亨網",
-      "title": "〈台股盤前要聞〉楊金龍重申匯市依循「柳樹理論」、聯電追加32億美元資本支出",
-      "link": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE8yZHVHOUxwUlI2OGJqcWNsZG5PY2o4MThIM2NnS2JuamFsWnQ0Ry05ZGUyMmtLWW15Q0ptSmFuNWNBRGV2NjhsZHZWOUZKaDg?oc=5",
-      "sentiment": "neutral",
-      "score": 0,
-      "topic": "台股與資金面"
-    },
-    {
-      "time": "2026-10-28T21:06:03.000Z",
-      "source": "自由財經",
-      "title": "美期中選舉前Fed利率按兵不動　華許否認政治因素",
-      "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE8zTnFqelAzSmtOelRqRlFVREF1NHlDbTZmRmtQQUUxcFBfa2dvUUllTVd3WFpqU3NmQVJxR2tkdWJxVG1wdV9nRXRST1RYUjhOTm5UOUtlZDZXLUxYNVFR0gFkQVVfeXFMUENxM2FhRVJpcHhLOFlVUmJWQmZoRXZXMkpVclJUaUhtZnJDWHVYdUkwMU5hSXN5YVpSWUxUNmM5cEFtenhBS3dxNXQtUlQ4ZU1PN01uWWtsZ3ppSk1EeEl6Zll4dQ?oc=5",
-      "sentiment": "neutral",
-      "score": 0,
-      "topic": "利率與通膨預期"
-    },
-    {
-      "time": "2026-10-28T21:05:00.000Z",
-      "source": "BigGo 財經",
-      "title": "Tim Draper 示警：比特幣普及恐引爆銀行擠兌、動搖美元信心",
-      "link": "https://news.google.com/rss/articles/CBMiekFVX3lxTFBuS1UtQzZaRDNYR3RXU3pjdnNvX0JaMmRzeGtoU2ppazUxdEFlY0RTaWdzMVJZc3ZacmZlUzlVS0pfSHFuTU9TeGpKQmRNa3RTMXNlS0RWNGJLXzJjcm53V1NCSzlnYWNHVWRzODhabzRnOUp0T3ExaUxR?oc=5",
-      "sentiment": "negative",
-      "score": -2,
-      "topic": "加密貨幣"
-    },
-    {
-      "time": "2026-10-28T21:05:00.000Z",
-      "source": "Yahoo新聞",
-      "title": "載客率突破八成！「航空雙雄」迎黃金週期",
-      "link": "https://news.google.com/rss/articles/CBMilgJBVV95cUxQOXQyWjNsb1RTTG9KZVE0NkJTXzdoQ0Fjbl8xQ0NBRVlOS1o5QWR2Y1NEX21IdTloQXZtVjBnN2p3ZzNmMEpxVjQxZWlaaC1JRVV3R1F1ai1Pa1h2SFlzVVBwemVtOXdqdlFNWmhzSFNyc0RGMVZhek9ROHRjWlI5eWpQZWp5UmR3U1BTUzRLS0ZZTGZjd1lJTmN2NlNqaG9BUi1TYnJXWHp2NjYtM1k0M3h4Y0JuZUc0WW5pM0tuTUlJUjZjQnQwTXhLWWpveTBOTVRUazV4Unl5Ny1RMV96dkVhbGhGRzdvam10Tzk2dlR4M3l6dWZLVHNJSTVmakJVdm5SNFNQalhmdXZKTGxEbl9CYm1VZw?oc=5",
-      "sentiment": "positive",
-      "score": 1,
-      "topic": "原油與黃金"
-    },
-    {
-      "time": "2026-10-28T21:02:46.000Z",
-      "source": "理財周刊",
-      "title": "【台股10/29日盤前分析】",
-      "link": "https://news.google.com/rss/articles/CBMib0FVX3lxTE1WN3huZjZ4T2dua3B2T3lvMG91cmRBRUxjUnRTaUVqdUhkelprV0oxWGphRmdBYkc0dENYT2k5a21zUFNKWEhwWlk1V3VXVkdwLXRMOTh4clBpWFQ5UDR5aldsdGlMYXVCamx0SWxhaw?oc=5",
-      "sentiment": "neutral",
-      "score": 0,
-      "topic": "台股與資金面"
-    },
-    {
-      "time": "2026-10-28T21:01:42.000Z",
-      "source": "etnet 經濟通",
-      "title": "主要加密貨幣行情，比特幣升0.47%",
-      "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxQdFNqVmlnaFdMWEE1Y3ZPNEI4TEkzNkktWTBfX01QSU5RYVllRVRBclhKRW82T210TGttamJjeDZnNHpQcHo4MEtaUUpUTGRlMVRBcm1nQk4zZ1ZXdUdGQk5BalFNSlBWdmZrZU9VWUpwZGcxeTlZeW56bW5kdTlyTE56dVMtdUJ4UktIcW9pclI4ZWM1OTNxSU4tbG1WR2lx?oc=5",
-      "sentiment": "neutral",
-      "score": 0,
-      "topic": "加密貨幣"
-    },
-    {
-      "time": "2026-10-28T20:55:00.000Z",
-      "source": "BigGo 財經",
-      "title": "聯準會維持基準利率3.75～4%不變，12月升息機率達85%",
-      "link": "https://news.google.com/rss/articles/CBMiekFVX3lxTFBGbnJtdXNHYXF6X2EzdDNHQkJPdzI3dDhfOWJpNk44WUQ1NFBFR09MR1MyWFEwQUNHeDdLb0d0R2NGV3BIbXhIaU5fSE1tZGlKM2RFWHQ2S1ZNVkdIeDhVTS1NMjVnWEJ6Q0t6VWMtQWRvb0xibldhRnhR?oc=5",
-      "sentiment": "negative",
-      "score": -1,
-      "topic": "利率與通膨預期"
-    },
-    {
-      "time": "2026-10-28T20:54:39.000Z",
-      "source": "PANews",
-      "title": "交易時刻：BTC卡位8萬關口靜待FOMC，韓股熔斷式狂飆引爆亞太AI存儲狂潮",
-      "link": "https://news.google.com/rss/articles/CBMihgFBVV95cUxPYVRCX2FkeVZUOFRjZXcyeFc0cXN5c1NoeE11RzJSYjYxbGlPNThVNFE1MXJ3YjF3MWgyR2gyWDBTcE9McTdyVlhCYnl1X0RtR0Q2Z2xjcU5uSXdZa0MxUUJBNVFhODRUVjZCaFlPRjdWblBSYVk0bWp3YXRKVVRCNmN1T1NtUQ?oc=5",
-      "sentiment": "positive",
-      "score": 3,
-      "topic": "加密貨幣"
-    },
-    {
-      "time": "2026-10-28T20:41:50.000Z",
-      "source": "鉅亨網",
-      "title": "Fed 10月決策出現兩張反對票！按兵不動難消通膨疑慮 債市押注12月升息機率逾9成",
-      "link": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE9HemxHQTNJY2txSzVWZ190SUEwdUo2a3VIM0l1WFJvSzVzZnBKRjFNRnVSQ1FuakY0QWJHSHNqMzNDWWs2SmdNTzJjQTI0djQ?oc=5",
-      "sentiment": "negative",
-      "score": -2,
-      "topic": "利率與通膨預期"
-    },
-    {
-      "time": "2026-10-28T20:41:39.000Z",
+      "time": "2026-10-29T04:52:30.000Z",
       "source": "Investing.com 香港 - 股市報價& 財經新聞",
-      "title": "科技巨頭財報+聯儲局決議登場，美元三連升！比特幣反彈升超2%，原油高位震盪作者Investing.com",
-      "link": "https://news.google.com/rss/articles/CBMicEFVX3lxTE42azdWMndveUR2bFN0YmExVUExbHl2aUYtbC1JYkl6WkFSSXpkYmlScjVPejVqak5tc3dDOVhUMVQ3RnFwTUNkYkpONUFxU3I3bE5MRUdyU2Z0SWdINWdZTk1fUmxERHJoUVd4UFU1UUc?oc=5",
-      "sentiment": "positive",
-      "score": 1,
-      "topic": "加密貨幣"
-    },
-    {
-      "time": "2026-10-28T20:41:00.000Z",
-      "source": "大紀元",
-      "title": "加拿大央行將政策利率上調至2.5%",
-      "link": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE5nTW0wVmwtSUxCVm5YTUZsSWwwVlluM2RKU3dVRUhQZ0ZfTzFJT0NIMWVOVENCWlZSODBjU25zSERDY0h2anVLeEdjN1ZkVGo5MjJVV1RPSUNUWTdSNXNfa1lidVZvSjTSAWdBVV95cUxOZ01tMFZsLUlMQlZuWE1GbElsMFZZbjNkSlN3VUVIUGdGX08xSU9DSDFlTlRDQlpWUjgwY1Nuc0hEQ2NIdmp1S3hHYzdWZFRqOTIyVVdUT0lDVFk3UjVzX2tZYnVWb0o0?oc=5",
-      "sentiment": "positive",
-      "score": 1,
-      "topic": "利率與通膨預期"
-    },
-    {
-      "time": "2026-10-28T20:40:24.000Z",
-      "source": "CMoney投資網誌",
-      "title": "【即時新聞】聯準會維持利率不變，通膨壓力下標普500指數守住漲幅，聚焦12月升息動向",
-      "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxQVk5sQlNrbGhrd3hfQTVJZmFXdlF0TDFXTEx1MllYMElNQXZJa0xfTGl6b3VjMTlmSklLdmpBUTgxRFBxakpJTXhoTjRqTzg1UlRSZkxuQ2JkbEhHOG1ybzY0Rk9KWjZKN3dlTm43UkI0TTlrTGdtVE1nMzlTTHN1WndlV0d5bGVWNGRZa1JJMjg?oc=5",
-      "sentiment": "negative",
-      "score": -1,
-      "topic": "利率與通膨預期"
-    },
-    {
-      "time": "2026-10-28T20:35:00.000Z",
-      "source": "BigGo 財經",
-      "title": "聯準會維持利率3.75%-4.00%不變，12月升息機率跳升至87%；韓國SK海力士ADR飆漲13%",
-      "link": "https://news.google.com/rss/articles/CBMiekFVX3lxTE1YT2FuWXYxcW9aektQYkQ4WHhfa3NYNUNGbmVQTDl4X2ZRbUJwaE5zUGNWYmpnZEFOT1licUFmeXprTk9feHpQNGw1bHY1Z1ZoazhDYTNmRzRMOEVDQjVJUEloU0UtTW13bHVud0ZxbEdkRU4zOHRySGpR?oc=5",
-      "sentiment": "positive",
-      "score": 2,
-      "topic": "利率與通膨預期"
-    },
-    {
-      "time": "2026-10-28T20:35:00.000Z",
-      "source": "BigGo 財經",
-      "title": "華爾街9家機構大砍6.8萬枚比特幣ETF，主權基金逆勢進場承接",
-      "link": "https://news.google.com/rss/articles/CBMiekFVX3lxTE52SmY4ZDNMNDIxYXNBa1lITHA4Y0Vqc09BUHhzUU9FQ0xkNWI2Q0VSNWo3QmVYTkVua1hfU3VIaV9MZXIwU1Y3T0doeDRUT1Fqc1Q1cTB2ZUtHcTVmcmdhblJsTGVoVzhKMnJxaThRWlp1WHg3bW1JRmdB?oc=5",
+      "title": "瑞和數智(03680)出售38.76枚比特幣 作者 智通財經",
+      "link": "https://news.google.com/rss/articles/CBMicEFVX3lxTE9ZSkR6RDI5bEMtTDRyUDA2amxIT1hpa0N2SjFFdWE4Wi1BamVhcF9rbDJrRXR6bUZXX21mNHdkUWNGajY3clV0dzJlSlUtLXdDMlJublBuQTNZbWdoREJrVk1SNlczYmdrcmZ6aEczVTY?oc=5",
       "sentiment": "neutral",
       "score": 0,
       "topic": "加密貨幣"
     },
     {
-      "time": "2026-10-28T20:32:35.000Z",
-      "source": "CMoney",
-      "title": "TWA00 加權指數- 伺服器帶動材料升級！台光電等大廠財報報喜- 股市爆料同學會",
-      "link": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE1lbXZoVU1JdjdfazhDN3Y0Z25tU0NCcXVkdlE4ZWZvUGQwcnFrX1NiUlhUT09zOWRNd19yd2N1N3dGVlppNHZnTXRwQWJtUTlRME1Bd3djYW0?oc=5",
+      "time": "2026-10-29T04:50:43.000Z",
+      "source": "經濟日報",
+      "title": "通膨升溫強化日銀年底升息預期 美元走強壓制日圓",
+      "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE5BX21xYTRSc3FZclRQMDljTlpvMm8ycUs2TDVEMmpRaEJiOEVuOUZZQ19lMHBEaEllbFBoekFiX0p0TkFZTGFPM2tDTzZOZVZUYWlCSG1yTHU0QdIBX0FVX3lxTE9aMFhRNmFYTUd3UllYcVkzaDVPN3hsSGh4U0NqVU9vY0tIeUp4alk1SWVNUk9OYXFDajRLaGp6UG9qWjV2Vmx1dHZGblRTa1FxVnBMZTRnMzIxeWMzNXVB?oc=5",
+      "sentiment": "negative",
+      "score": -3,
+      "topic": "利率與通膨預期"
+    },
+    {
+      "time": "2026-10-29T04:50:32.000Z",
+      "source": "UDN",
+      "title": "台股高息 ETF 績效大躍進 00927今年來漲幅94.95%居冠",
+      "link": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE5QMWlMWC05ZWREblY3QXVNOUFZOHU1MWdSLXBzTnZpMnZwQ0kybHFEXzJ5ZzUzTjlNczJZc1V0ZmVvZFlyMV9ZUWRqZDQ5cDFqNmhn0gFYQVVfeXFMUEtHazVmcDQxSXotRWxHWVRjQUZOYTNHVWhEa1dIWUp2cEw3dDJhay16VjdPaER0VHllMlQzcWJqcjJwelFlajhoUjZDN2JHRVNVVmJaa05LZw?oc=5",
       "sentiment": "neutral",
       "score": 0,
       "topic": "台股與資金面"
     },
     {
-      "time": "2026-10-28T20:32:00.000Z",
-      "source": "自由時報",
-      "title": "良率不到20％ 長鑫硬推高頻寬記憶體",
-      "link": "https://news.google.com/rss/articles/CBMiWEFVX3lxTFAtNDNDaFUyYTlXU0w3UWY3bXhsV3BkcmRJME5NaDhjZWY2b2hXbllHdk5UXzR0UFlvNzVmYTZUbGtfSjJXRUR1TUh0VURxaU1NN1Y5WFdjWnM?oc=5",
+      "time": "2026-10-29T04:49:53.000Z",
+      "source": "旺得富理財網",
+      "title": "台股血洗800點！昨日狂歡一場空？「南亞科、金控雙雄挺身護盤」另1檔單季EPS賺4.55元大驚豔 逆風3分鐘鎖漲停",
+      "link": "https://news.google.com/rss/articles/CBMiakFVX3lxTE4yZXVNMm4tLXEzYXp5WXBqdGl1MnJXRmhPQXV5bFljb1d1eE9WZnBiRlRzRmpQdGU1eFpPOU9QNUV6VjhZNm02Nm9OZkR6bTQxM0ZmOVZuQVJrQ29PRHpwZkNxNzFLcEFiY1E?oc=5",
+      "sentiment": "neutral",
+      "score": 0,
+      "topic": "台股與資金面"
+    },
+    {
+      "time": "2026-10-29T04:49:43.000Z",
+      "source": "Yahoo 財經",
+      "title": "瑞和數智(03680)沽38.76枚比特幣套現2450萬港元 料蝕20萬",
+      "link": "https://news.google.com/rss/articles/CBMiwwJBVV95cUxNSUdaM2tRMjlZTFVDYVdvNjBhSXROT1RWM2tmMldoY3VLaHN5X0ZhTXdURzMzVkN6YUo2cDdfTEFmLXhhUDRHZHo4VmR5NDhsM09oSEE5UHFkMVpKTTVqWTgtS1RqNXVYS2xFTUZiWjNfay1iSXdsVUlmd1NNQ05fN2dIUnROeHVGaHdNcGFXbTBIczVqNzRwN1BXUjg4c240eGtEZ3gwdXotZHR4ZVRYY2Y4RXNTTnNlNzQzUVdFUEI2Ri1yaS1DVVp5dHo4VDBxQ3M1OXF6SVYwbHRvMmN2VXc1dGVzUHFGN19HQUkyZF9jaFNoZ0NnYmtnZkhZUjJXUjJhVU9lVVo0X3pqajZPTkF4X0QteG5YX2w2T012cF82bzZoUVdCSUcwQmdOYUx2QUZGM1FPT0kwQmRFdEZwN2I2OA?oc=5",
+      "sentiment": "neutral",
+      "score": 0,
+      "topic": "加密貨幣"
+    },
+    {
+      "time": "2026-10-29T04:47:47.000Z",
+      "source": "鏈新聞 ABMedia",
+      "title": "Marvell 傳洽購 Lumentum、估值達 830 億美元！光通訊公司股價兩樣情",
+      "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE90aGVHVXljSVhSOUVOcFZfOGJEVy03Q2Q0bkNpLUxuRTRpWWVodWtkbXJWbVRBUXZpLVBYMUQzMDJwWDZ1RDBxMGhLQTF0cm5neXZKQTEtTm1wM00?oc=5",
       "sentiment": "neutral",
       "score": 0,
       "topic": "AI 晶片供應鏈"
     },
     {
-      "time": "2026-10-28T20:30:55.000Z",
-      "source": "鉅亨網",
-      "title": "英飛凌砸11億歐元打造全球首座12吋GaN量產基地 2027年底投產",
-      "link": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE9nZ1NkdE41RjlwMURLdjBUcVhFSDdWUjBvRWRobHZ3YU12bG5OdkNFeFN6NFdNaWJBZXQ0MDcwZlVhYm1yQ2ZHSFFrQ0hVWUU?oc=5",
+      "time": "2026-10-29T04:44:53.000Z",
+      "source": "旺得富理財網",
+      "title": "高息ETF績效1表看》不再只靠配息！8檔今年跑贏大盤 00927、00939、00878…這檔含息報酬逼近100％",
+      "link": "https://news.google.com/rss/articles/CBMiakFVX3lxTE5HVXBNN21udi1iOS13TTVCRF9tdUtsdXhmaWtodVlOZVJvZUt4bGpQZFJYQmJIZXU1ZFFCU2I2RDRoRWZSdENvNE1abmlZOVFjUlM1bHl4M2hIanA0eXU0X3A1bC02cy14c0E?oc=5",
       "sentiment": "neutral",
       "score": 0,
+      "topic": "台股與資金面"
+    },
+    {
+      "time": "2026-10-29T04:42:00.000Z",
+      "source": "TVBS新聞網",
+      "title": "奪台挾持全世界！美前議員示警：AI恐逼習近平對台積電下手",
+      "link": "https://news.google.com/rss/articles/CBMiT0FVX3lxTFA2MU1xTGJNU1NWTXcxRS1DdEZkNmtpZklJZ1FKOG1sbG5za3RDUzdPSUN6SjFqRUp6RGQ4WkpKSEVlMHo5LURXWmstLTk4d28?oc=5",
+      "sentiment": "negative",
+      "score": -2,
       "topic": "AI 晶片供應鏈"
     },
     {
-      "time": "2026-10-28T20:30:36.000Z",
-      "source": "CMoney",
-      "title": "TWA00 加權指數- 細看為什麼Alphabet會跌那麼多主要還是圍繞著這兩週大跌... - 股市爆料同學會",
-      "link": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE5IQVJPaV9fcjZadW9BQl9JSGpVMXVPdWJtWVNfN1A5c0dXZjJGOGpRbW4wcmFTc2Ytb0M0RFl1QTQwQXJxZUFVaHZvc0ZSbl9KTDZXVmdrT2M?oc=5",
+      "time": "2026-10-29T04:40:28.000Z",
+      "source": "Newtalk新聞",
+      "title": "Google財報引賣壓！台股暴跌逾800點 AI供應鏈仍有戲？",
+      "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTFBmYjJEOW5TenJQMGxfMUhZZ1BTbV9YUV8xdWZWc09uT2tjb2dET3Jhbm1id1FNUFBFaW5xa0hINWJTRXg4ZnI5Ym1iWE5NZ19ZNTFtRjluSHRpNVE?oc=5",
       "sentiment": "negative",
       "score": -3,
       "topic": "台股與資金面"
     },
     {
-      "time": "2026-10-28T20:26:33.000Z",
+      "time": "2026-10-29T04:40:00.000Z",
+      "source": "MoneyDJ",
+      "title": "台股下挫 台幣早盤重貶1.15角",
+      "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxQbTlxeTBiWGhaelctX0ZnS0ZzNFpFMEtVT0RGT1RqTmo1Z00wV2ZJOWN0Z2FZUmVFOGdlWVVWNkM4ejJjc2Exb0t6UEpWbXhlaXVHaWJabFo1OXZRRVdRQlFtR1BYR2hZLVVwdmRhMWM4YVVpSVd5VEhPaEpTSThTclpIckZ5OEN0UEhGcEpBcGM2dw?oc=5",
+      "sentiment": "negative",
+      "score": -2,
+      "topic": "台股與資金面"
+    },
+    {
+      "time": "2026-10-29T04:40:00.000Z",
+      "source": "FTNN 新聞網",
+      "title": "慈濟遭詐10億案開庭！李世宗喊「只是老教授不懂經濟」求交保 豪宅搜出黃金仍拒認罪",
+      "link": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE1WbDRaZEIyWENjMUNWNkdGUURNbzRsN0Y3Yk50QnQ1RXZwUUJSUE5lN2xueERmTE1hNHF4dzFsX2RvTjBDNzV1WlFwOA?oc=5",
+      "sentiment": "neutral",
+      "score": 0,
+      "topic": "原油與黃金"
+    },
+    {
+      "time": "2026-10-29T04:38:00.000Z",
+      "source": "工商時報",
+      "title": "新債王批聯準會「只瞄準不開槍」！拋3重警告 AI信貸浮現「次貸前夜」訊號",
+      "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5YT3lTNEF1cVNnWU80MndmMWZ5MkpjaDkwSWE2UXN3ZXc1YVo4N3ZFNlZvaWpUSEEtVmhCWlJTNzRYNGo5dnpheWV4VlI4SFNWQURyZWNFZXNtcmJRQWpR?oc=5",
+      "sentiment": "neutral",
+      "score": 0,
+      "topic": "利率與通膨預期"
+    },
+    {
+      "time": "2026-10-29T04:36:47.000Z",
+      "source": "經濟日報",
+      "title": "路透：輝達逾4千億併Hugging Face　面臨反壟斷調查",
+      "link": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE9RLWJKVGtGVDUybGpsWVJwUWZfWkJ1RHE4WGRSQU5GcU5kTWduZGR3Y0RZQUJKNjFVcHdJOFN5eWdiTm96MkRBTTBjMDlIZThvNWNkX2FXMFZscV9F0gFiQVVfeXFMTlhSbXZ5aGhXQW90YllYbzl2cUs0M3BKc1ozTXZmellFTVZrYlhnazB2a3VMODV6Y05RWW82aVMtR1NQVVVFR0s4UlZsbE42b0FsX0xXaHJDRWU1REhmZzNEV3c?oc=5",
+      "sentiment": "neutral",
+      "score": 0,
+      "topic": "AI 晶片供應鏈"
+    },
+    {
+      "time": "2026-10-29T04:34:40.000Z",
+      "source": "公視新聞",
+      "title": "Fed決議維持利率不變 台股開平走低守4萬6000點",
+      "link": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE5kbEhLWHR3b2hOTldmd0cwUTFYZUQ2NnFiNmtIUVhpZmxMRFI4UUZvTjVnTXduVk1UTVlkNGpwWEstOXhXcFJFRl8yU2RnSXM?oc=5",
+      "sentiment": "negative",
+      "score": -1,
+      "topic": "利率與通膨預期"
+    },
+    {
+      "time": "2026-10-29T04:34:00.000Z",
+      "source": "LINE TODAY",
+      "title": "搶攻AI電力商機！009831今掛牌 | MoneyDJ理財網",
+      "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE9iX1RtbHR5elg2Y01lMGdHZjhXZHhyS0pBZU4tNGpQM0dRVU9rSFd2bTA1TVgzUnFvcVdSak1jczVTaHYzSl9lX004UTNRTlJHS3hWem9B?oc=5",
+      "sentiment": "neutral",
+      "score": 0,
+      "topic": "AI 晶片供應鏈"
+    },
+    {
+      "time": "2026-10-29T04:33:54.000Z",
+      "source": "Yahoo股市",
+      "title": "台積電追上聯發科「竟靠發哥下跌」！股民崩潰喊話外資：不是叫你往3000拉",
+      "link": "https://news.google.com/rss/articles/CBMitANBVV95cUxNbkFncGRQSFphWkJBdjlpVDRNUk1zeXQ3R2ZBVkl5Mk1rNm5MUG9xUGRWaFVHX0F2d203b1U4VVRNMmhISk0xTmlMOWlTX0lLWmlmVDlUZUlQRElTQ2dVRDR5QldvNVhCTHhvbXFJY0V5MjJzdGlVMGJFSnN0WkRPcTdIYm4wbnBENFhmNEp1Skc2R2RnSlIyX0pJQUpCMGlNWEQ3NFg5aUs3NEpFQUpOQXpjSjh5SWIycnN6V081WDhKU0NxYlhFR1JhRUdjSmstNm0wc1lMYlI3TVVTTW01M3B1TXBCeHJueC1Rc242Mk1FOTNPSlJOTUhMOWxibTNSYWhCSmJiV19RdzhQcW5rblhXclRjWl9mNTEtZk5vbkFacWQ5bW9Yb0lOTko0ZEk3cWI0NGRFYUFqVDk0MHdud0xKVDFQNER1d0JYb0xIMk1MeHItdDA1cGphTko0T0lXRUNNWHpmRmtDbEJzRTlHSm51bXI3QXRUdHRxSlpZbWRXQ1I5QVhoLXQtUHFZc2o5ckt2QzI0RWREbndfUDdYQzZ2dG9QNmR4UnhTSElCS0RZcDNK?oc=5",
+      "sentiment": "negative",
+      "score": -1,
+      "topic": "台股與資金面"
+    },
+    {
+      "time": "2026-10-29T04:30:39.000Z",
+      "source": "玩具人 TOY PEOPLE",
+      "title": "獸王武神丹帝拜恩『TOYRISE 百獸雷帝 黃金萊歐斯』試作品造型公開！",
+      "link": "https://news.google.com/rss/articles/CBMiTEFVX3lxTE1hYkRubGNOTHhlM0ZfTE9FQURWbDlnN0tudndtWUtybkJITEJfd1QtQnA4YllmQWMwLTI5RExBeHF4UlZFZVNkWW0tbXg?oc=5",
+      "sentiment": "neutral",
+      "score": 0,
+      "topic": "原油與黃金"
+    },
+    {
+      "time": "2026-10-29T04:30:23.000Z",
+      "source": "UDN",
+      "title": "台股大跌也沒用！他放空冠西電慘遭軋空 嘆虧損股反而一直漲",
+      "link": "https://news.google.com/rss/articles/CBMiUkFVX3lxTFA3b0QyOC1KVDJiWFhSWEZMQ1kwOV8wcTJLbC1zYVViUS10ajBjLXZnLVdLZUxfUmppTEhTUnBuOWFxVTA2dGRoeXJ1cTdFenFiY2fSAVdBVV95cUxQYXIwd0pqWVkwWTBHWHdlQTNEcktzYk12X0RLa3FmUFp2MzRjN0xaRzdEXzhoaVdOT3ktTlBMYURaRE53aXBnTnZYOVB1ZHNKZUJwc1dJMlk?oc=5",
+      "sentiment": "negative",
+      "score": -3,
+      "topic": "台股與資金面"
+    },
+    {
+      "time": "2026-10-29T04:30:07.000Z",
+      "source": "鉅亨網",
+      "title": "Bitwise：為何在熊市之後 我們反而上調了BTC目標價",
+      "link": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE9lMklaMjltNHp5SkxIYThzMm5wWHRLaFJWNmFGQVJIY3o3Y2FhaDBLelN1Mi1PQjdKbXlKQ1l5RFBQRnFGWkZodW5jdldYLUk?oc=5",
+      "sentiment": "positive",
+      "score": 1,
+      "topic": "加密貨幣"
+    },
+    {
+      "time": "2026-10-29T04:27:21.000Z",
       "source": "Moomoo",
-      "title": "Bitcoin Returns to $81,000 After Fed Holds Rates -- 2nd Update",
-      "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNcE1UTFUtcGVNaXhRX1NpM09TV2ZiLV82RHpMQjh0VGNuWERwNHREenFTNF91cUl0OEU1Y3JPaFlLT3RYSldPRk5NSnNoTXZjUmc2cXhnVk9USXFmbEMtUUhQTTdzMGhfV1FYOVhBX2dOU1BRT2QxS1UtWlFyUEJHdXVTbFo0TWl4U0xCRV94cTZ5anhiMXVfaHFYT0lUYm5YdmxYczdDUkhxUQ?oc=5",
+      "title": "瑞和數智出售38.76枚比特幣",
+      "link": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE9yd2dmR1k5MDRvRHhMY01hNkRzbTVWaVM5Z3NrWVowT2FXX2tNUEVVNk1wNWZaNVlYaERsLXVnLUVtV0xxZ0lBdDIwbXJfTkcxQVhhaXhoSEFmbWxU?oc=5",
       "sentiment": "neutral",
       "score": 0,
       "topic": "加密貨幣"
     },
     {
-      "time": "2026-10-28T20:20:00.000Z",
+      "time": "2026-10-29T04:25:46.000Z",
       "source": "Yahoo新聞",
-      "title": "台股上週慘跌1069點！蒸發3.46兆 這族群暴跌12％最慘",
-      "link": "https://news.google.com/rss/articles/CBMisAJBVV95cUxOdWlaellxUmlNbThRa0J2RWV4djJCVkMyMzdWekpfRGN0WkhKelJZb0lxTHZ6Ym52VHdieHhWT2tvTkZURHJXVXlvQm1KVlZCejNkVXcwTnZMcU5YdEx4WkVQNFFha0FPN2g3VTZ0RC1leHg1eXpIVUtsUVR4eXQ0b3E4ZEJwTXpaczhIclh0cm12Qk1KYkZkQ1hWWVZTd2RLMnFVZTJPR1JHeWtlUDE0bGxsOWtnV2JWdy1NOHJSZ3lTeWVoaV9yZ24zbUtaaHluc2RBM0R6UV8xT2h5TVhZTlJsZ2NvTk9TRXVOUXBVRVFjdDJqYThnZ3g5UTV6TFV5N0szSUw3MmtIVGI5Vk0wX1g1aWpqaW0xOElCMXdiSzFsOWp2Y3BXVFVQakVjUExy?oc=5",
-      "sentiment": "negative",
-      "score": -6,
-      "topic": "台股與資金面"
+      "title": "日德領袖會談重申台海和平穩定 外交部誠摯感謝",
+      "link": "https://news.google.com/rss/articles/CBMi0AJBVV95cUxQUE5DWTFNUF9RWHFKWloxY3NkbXJPelpTc2hlWmtIUWk2eEplSW1WcW1GQjlwOHRkenlObmd0Wi1nYVhBc1hlWUZfYTB5azZtSHRYY0k2UW44THVmQWJySklZQW94WVBudEROU3ItVDc1RUlfd3Rja1A5MGlXQzQtN01SNVFBOVBOQmdWV0tVZDBfNmFteVNIZGpWeTJSaXBhNGF0SHJ0elNiLWRpWk5QckNacWc5clVrS0tmclRkLU1vQ0pFSkhVU3VIdjM2Rlpyb2tHSkF0NmZoTkx0NHZDclFTSzRaVFE2UjF0V09BT2htMEwwXzRWb2t4ZmkwOUQyaUVNa0tiZnBTRmoxLUh6cDBCVGEzNjBoMDFvM1RiX21QbGYwZHByb1NQa0RzMmNpY0EyNmJVMF9fd3ptSmNKdklfemR5dUNFaC1fQU1DRWs?oc=5",
+      "sentiment": "neutral",
+      "score": 0,
+      "topic": "台海地緣政治"
     },
     {
-      "time": "2026-10-28T20:19:03.000Z",
-      "source": "CMoney",
-      "title": "TWA00 加權指數 - 🌟Fed利率維持不變，10讚成2反對 🌟財報出來後兩樣... - 股市爆料同學會",
-      "link": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE00bkFKNVg4REhNVHY2bDFfLWpQdzQxMVRKcUxmUGdKbU9lcVBDZ09mOVc3RWlKNV82bDdpSmU4TjN1TUJ0YnI0RENNVXMzOTRwOHlrSHpDX3Y?oc=5",
+      "time": "2026-10-29T04:25:00.000Z",
+      "source": "BigGo 財經",
+      "title": "台股震盪加劇 被動式009816近三月報酬19.1%超車主動式ETF",
+      "link": "https://news.google.com/rss/articles/CBMiekFVX3lxTE9nd3VwekQxZ0pqel80aUZNN1VlWE1TclFMUFR6N1ZpMDRTQUJIX0tOeVlEbllqTnN4Ukl1bVUxR3UyUzg1TzZfZmRET2RiOUpfQThCTGhFQ3VuZVVSQzF4VjlsZ2dvMXJOUFpTMnV2SlAxbnJZY2F2VW1B?oc=5",
       "sentiment": "neutral",
       "score": 0,
       "topic": "台股與資金面"
     },
     {
-      "time": "2026-10-28T20:16:55.000Z",
-      "source": "Business Insider Taiwan",
-      "title": "異議意見、價格上漲與會議日程變更 10月聯準會會議的3項重點",
-      "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE1Pb0dWdGtWQklOZ0xzWnZ5RVdyMzl0YzdscFRqQzdNOXhOZ3dNTmVCbE42SEdhTlN6dWhQcVJ3UDgtTURxanFKRUJsSS0tZDZwblBBTmdB?oc=5",
-      "sentiment": "positive",
-      "score": 1,
-      "topic": "利率與通膨預期"
-    },
-    {
-      "time": "2026-10-28T20:15:54.000Z",
-      "source": "鉅亨網",
-      "title": "沃什：政治未對利率決議發揮任何作用",
-      "link": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE5oQ1k2dVQwN0RNOHVSdm0zd1dXekUyQ21HUnNZQWhkaThyaU9WZ1VkRFIwODhHcFMyT1ZJNzJ2ZDhhN2FHOXAwbkFfVzFzZ2M?oc=5",
-      "sentiment": "neutral",
-      "score": 0,
-      "topic": "利率與通膨預期"
-    },
-    {
-      "time": "2026-10-28T20:10:00.000Z",
-      "source": "中時新聞網",
-      "title": "通膨警戒楊金龍曝升息時機- 財經要聞- 工商時報",
-      "link": "https://news.google.com/rss/articles/CBMia0FVX3lxTFBqTHNmNkhQd3ZpbEgzMzBYMzZiV1haZ3hSQUVoU1VfcDY0NTk4bHlxQ3B6U3JIUHhmVTVmTmRHdTVQZ2Q0UzdfWm5CNEt2VzUyYlVIQ0RaWWRES0pmYjk5SmJoYl85T01uTHFB?oc=5",
+      "time": "2026-10-29T04:23:49.000Z",
+      "source": "經濟日報",
+      "title": "川普暫緩對機器人和工業機械加徵關稅 指示官員與貿易夥伴展開談判 | 國際焦點 | 國際",
+      "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE1EeEFXV2k0WlhvV2d0dzNFdTlycllKR2VTR2JNQWZDdUlwR3Jic2diempOU194WWxkMDdvMmdjdF9kdkYyZW8xZ08wVGJmdnBzZWJzSFhycjFHQQ?oc=5",
       "sentiment": "negative",
       "score": -1,
+      "topic": "台海地緣政治"
+    },
+    {
+      "time": "2026-10-29T04:23:04.000Z",
+      "source": "巴士的報",
+      "title": "瑞和數智出售比特幣 現金代價約2450 萬元",
+      "link": "https://news.google.com/rss/articles/CBMirAJBVV95cUxOVmtYRFpaS2JaWmk5QXJCQjQ5R3pHSWg4djJVa2t1NktVTGkyMm5xNDlWS0hSYTdtWjJmS0kxbDNZQUJaYjVuQWhtN29rX2JxSHlHTzlnbFBQLUd1bEJpVnRsMFdZTzM4U1d5UV9vb3VMSEVQZ0djNkxXTUUtQkVxYlRhaENrc2liQ0t4QVRwTHhQSENqREFLaDF5SUJSLWRiRjQyQVBVRHY5Z3lMalUzb09GcXdodjc4ZW15QmhDb2xScnhWUVZvT2xhR3JrSWJnNkYtcjhfbnF6enFpMUFIZUtraHF1akpuUmhCRXB0bVZWbUNsREpuRzdUaTBnbW1FdWI4VVdIR2swcjl0UWJaZndZakoxN3FHb2FuRXRvTEpVbXJWT0lPdnI1T3Y?oc=5",
+      "sentiment": "neutral",
+      "score": 0,
+      "topic": "加密貨幣"
+    },
+    {
+      "time": "2026-10-29T04:19:53.000Z",
+      "source": "中央社 CNA",
+      "title": "美期中選舉前拍板不升息！華許駁政治考量 聯準會「1大變革」引市場熱議",
+      "link": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE9yUkd0cHB5U1N5S0xlc2hZSjRiU0x3cU1yNThFVl9rbDZtbm1aVmtPTDlPcWxCeVE5STlmTXhVbEtiZEJKSlJpSDBRNzYtS05yX21z?oc=5",
+      "sentiment": "positive",
+      "score": 0.5,
       "topic": "利率與通膨預期"
+    },
+    {
+      "time": "2026-10-29T04:18:00.000Z",
+      "source": "TVBS新聞網",
+      "title": "川普認定進口機器人威脅國安 暫不加稅、180天內回報談判進度",
+      "link": "https://news.google.com/rss/articles/CBMiTkFVX3lxTE9NOU4wYkpfRmo3NDVtaU96QzhLOEhlR3M4ZlVTc3NXaUpWamxSRDJKNEMzQ0ZRQUZTT1VnSU11M2c0bG1BaDFpbmo2QTloUQ?oc=5",
+      "sentiment": "neutral",
+      "score": 0,
+      "topic": "台海地緣政治"
+    },
+    {
+      "time": "2026-10-29T04:17:45.000Z",
+      "source": "香港文匯報",
+      "title": "委內瑞拉代總統要求英格蘭銀行歸還黃金儲備- 國際",
+      "link": "https://news.google.com/rss/articles/CBMid0FVX3lxTE84VkNvdjdYTEVfN0o0U2Y0VlNzQ3A5OHRheDRIRkJINnRaWUFyV2ZCRjR5YTRSQVJxY1VmdDJDcWxmU0E2ZllpUDk0NHRHVzl5dHdod19KUGs1Z2tNVHFaME5aWVVpOVFFVW1pbWZFaklXWnNCRkdF?oc=5",
+      "sentiment": "neutral",
+      "score": 0,
+      "topic": "原油與黃金"
+    },
+    {
+      "time": "2026-10-29T04:17:39.000Z",
+      "source": "區塊客",
+      "title": "【狂人說趨勢】這次比特幣 8 萬有點危險，但中長期 75-80k 買進策略不變",
+      "link": "https://news.google.com/rss/articles/CBMiakFVX3lxTE12WGtzT0hjbXktc1l4d25QZXdYbXR0dE1TRHhUZWVJYkROa2xGMndYVDE3TVJrcEw1b0d1OVJBUGRwdjFxbUxJNkVsR1g4YXNNUVlUemJUUVRaalJwUFA3aENBOVJFMzFYY3c?oc=5",
+      "sentiment": "neutral",
+      "score": 0,
+      "topic": "加密貨幣"
+    },
+    {
+      "time": "2026-10-29T04:17:23.000Z",
+      "source": "自由時報",
+      "title": "台股回吐昨日漲幅！新台幣貶破32.5元、早盤大貶逾1角",
+      "link": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE8tUUFQTFZfdTBEck5nYndzMDlFSEZ5dkFuYUlST3dyMGF6VWx5OWRyNkRQT2tiQUxILUtsNzJrZXNJNXlSTHNWcDlFV3llZjV6VjlrdlBoUzM?oc=5",
+      "sentiment": "neutral",
+      "score": 0,
+      "topic": "台股與資金面"
+    },
+    {
+      "time": "2026-10-29T04:15:00.000Z",
+      "source": "鏡報",
+      "title": "半導體載具、IC Tray、BBU三箭齊發！耐特11月中上市 明年營收拚增15%",
+      "link": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE9lMjNyTFJHRWdfcnFESlZibEJrMGRoYktaR2J0dUJjNVV3eWtDaTRoN245ZmZJLUNXWC1JWkZfd3ByNVlBcGs2WHl4YWNVZWRqV0E?oc=5",
+      "sentiment": "neutral",
+      "score": 0,
+      "topic": "AI 晶片供應鏈"
+    },
+    {
+      "time": "2026-10-29T04:14:00.000Z",
+      "source": "ETtoday財經雲",
+      "title": "譜瑞-KY股價殺逾8%！　美系外資開槍狠砍目標價46%",
+      "link": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE5IN2hCME9jUmw4ZEFnaVBrY2twWkVmVWtxXzFJUzg4SF9XUU15MXZqU2tTZUdZeFo2Q0l6ejlZa0lNX2J4VThmN3lOVGhZaWd6eHfSAVBBVV95cUxOcTVhdlVwMUJ1dnRYRGpPUk1uZ205MEJOemNDRlkzSDdnTVVaTVotREk5b3ZUNnpFRm81dzNJdkJDdFdlT1ViSVNwTkZlTU5GbQ?oc=5",
+      "sentiment": "neutral",
+      "score": 0,
+      "topic": "台股與資金面"
+    },
+    {
+      "time": "2026-10-29T04:13:00.000Z",
+      "source": "工商時報",
+      "title": "台股崩跌近千點這家砷化鎵晶圓代工廠卻漲停！法人看好衛星、AI光通訊雙引擎點火- 證券",
+      "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTFBpb215RGxTcmFfUzVVNlJ3UDR0cHJETWhBcnliVzR2dFRwOTRmWmtYWkx0YlZKLWZ4WS03Y1pSU3dIbUQ5V1hCZGN5OElwWnk0RFZRQWxKQzNCZnFZVkRV?oc=5",
+      "sentiment": "positive",
+      "score": 2,
+      "topic": "台股與資金面"
+    },
+    {
+      "time": "2026-10-29T04:12:18.000Z",
+      "source": "Yahoo股市",
+      "title": "全台首檔美國黃金礦業ETF來了！兆豐「009832」今上市 翻紅小漲1%內",
+      "link": "https://news.google.com/rss/articles/CBMilgNBVV95cUxNR0w5NXFsb2x1NzZpWkR0alBWOFh5SXBBbjkySGlCQVlxMThyUklyR21lOFQ4ZVA1Tm9NcmpheXU3WUJtWmdwZzQtZFlvbHUybVZkSDlQa0xSR3E1LU1OdGxsZUdDS3BCc21lWThpLUJWNkJlMXctUno4bjdtMmsxS2hGR1VzYTc5bzNXZVRiTFVyY1g3WS1KMmJERmViaTV3Y0x4cUo4Z0ZTSEpIYnlCU21tUllZdURXSEl5U3g2UUprLWZQN0ZpUTk5bV9fQnZ4QnpKcl9Rc2cyVHYyVzN5TmFJbEViaExnT1JNeGZrNFVXV09EcnM0eENEeEltMlh6UjNHNXBHS2ZmRnB6VXpibHI3WFRRNVpmSnp1NXE1Vkl2YjZmT05XX1dfZ1FEYnBYRGo0Q2xWVXB0cVZLZDhISUhlSERUdWloU19JNEJobWduQ3V6ejg1RWVKUmhFdzBJVTRBRWVKMDVWUlhjUzVCLUIyVHgwZTgxRXB5Sk1pR29fVEhNRlFFMFlBcGF2a1lmNUxBM0VB?oc=5",
+      "sentiment": "positive",
+      "score": 1,
+      "topic": "原油與黃金"
+    },
+    {
+      "time": "2026-10-29T04:11:17.000Z",
+      "source": "Yahoo股市",
+      "title": "谷歌「AI燒錢」股價重挫近10%！台積電跌35元摜破季線 分析師曝進場時機",
+      "link": "https://news.google.com/rss/articles/CBMioANBVV95cUxOUW1IMV9SSUtXSGNFQk5uLXFNWE5abDhkNW8zbHhrN2RUMExJeDFmVzNQbmFfMXA4UTBvekx2UVlhVzVEZm4tNDI5OFZBVlptRjFaLW5rLVpHeVRqLWZSX1NPMGpUd25abS1VMG1aY05OcmstYnNwYTg2MklSUEFyWTRhT25YMWY3WERLTVdQOXdjRURWUEdHS0FpZDlxTVZVeUduU3hTSkR6Q3RhYXp0SS1hLU84ZUE1LWxraWZuMWlZVW14U1J6d3FQbDkxeDdERFN6Ul9ZUjlGalFJZkZlVW00RWxlekdpVFg2RGV2NWtaQUlwNHpUcXFqOWRuNGVVbkp2U1dNaENaZU9TbzNZMTI1NmZpMTRfd3oybmd0ay1YMVVMQ3lJbWI1VFNEWnZxZjgzTjFSSmJaWmNRX3F2eF9vcC11RkxPRlB4Rjh0U3BLU0syc2lidlZ1bWNUVTdsSnFOdWV4THVFQzZ6Zmtad3hEWkcwUGkwUUZDeTJuSTNaRE1NdEJLeHdFRkRDX3JxYTdWV0kyMGNKR1R5QnVmZw?oc=5",
+      "sentiment": "negative",
+      "score": -4,
+      "topic": "AI 晶片供應鏈"
+    },
+    {
+      "time": "2026-10-29T04:11:13.000Z",
+      "source": "富聯網",
+      "title": "紐約金價週三漲跌互見，聯準會未暗示12月升息，現貨金上漲0.18%",
+      "link": "https://news.google.com/rss/articles/CBMihgFBVV95cUxNYnA0ZWZNNkpMZkRZcHVma09hYnFzdERjTDZpbUxkR09OQ216YXl2aEFuaFJFZGhHZmduaEF4WmNXazFwVERXQU5xUTFRa3hzNUprX29zT2YzZ3NYbU5JVTh4VG5pYUdyVzNMQndySmZWbHNGdERlNExtODZXdmJ4cHhwREhKUQ?oc=5",
+      "sentiment": "neutral",
+      "score": 0,
+      "topic": "原油與黃金"
+    },
+    {
+      "time": "2026-10-29T04:09:39.000Z",
+      "source": "鉅亨網",
+      "title": "百容半導體接單續強、漲價效益發酵 Q4毛利率看升",
+      "link": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE55dGdsbVhJa25senJFQ01SQzdhdjBQWW5hZTF4MjMxMUo0TFpodndNVTFPaWRwZXY4dE8yZTdhd1A5dTI1NVEtenhOQUVCUGs?oc=5",
+      "sentiment": "neutral",
+      "score": 0,
+      "topic": "利率與通膨預期"
+    },
+    {
+      "time": "2026-10-29T04:07:25.000Z",
+      "source": "自由時報",
+      "title": "Fed宣布重大改革：2027年起逐步減少利率決策會議次數",
+      "link": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE8xbnB6a0U0YUs4WTdwSkFvUzJXSi1rMUp3TWN6RGJfVjdYakdYbko5UTUtMV82UWNaWENXaVotY3JfV2xlSGJwTXY4bGttbzZreEFieWl4cms?oc=5",
+      "sentiment": "neutral",
+      "score": 0,
+      "topic": "利率與通膨預期"
+    },
+    {
+      "time": "2026-10-29T04:05:10.000Z",
+      "source": "鉅亨網",
+      "title": "三星電子推遲股東回報計劃，股價一度大跌6.6%",
+      "link": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE5zcFN5WmRJREhSdXkzUVhyYnFOSldwM2IzVXI3ZzlIa0VTc3B6ZmN2RElaUzY1RUlscHN0a2ZSdm9zeVUyTlVYRVRoSDVsUms?oc=5",
+      "sentiment": "negative",
+      "score": -2,
+      "topic": "加密貨幣"
+    },
+    {
+      "time": "2026-10-29T04:05:09.000Z",
+      "source": "鉅亨網",
+      "title": "Visa財報：穩定幣結算年化規模超250億美元，年增率增長10倍",
+      "link": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE9GZ1RmSUEybzcyQ3JWZ3VCb0F2Z3Z0QVplbDE1SVVEOThhNmEySHZYV1VIUHJCMEZSX0ZxQWhwek56NzQ5Ym11VzY2UTFZUU0?oc=5",
+      "sentiment": "positive",
+      "score": 1,
+      "topic": "加密貨幣"
+    },
+    {
+      "time": "2026-10-29T04:05:06.000Z",
+      "source": "鉅亨網",
+      "title": "Bitget推出財報季合約活動，交易閃迪、海力士解鎖5萬USDT獎池",
+      "link": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE03QzVKUVFhZDJhQVVmMHZMWnpNMmxiVGR1Tk1jcEFPMUNtLWF6R3NocXhFaHhSak45WXNDc0sxUE9XZTNqWDlSRmFGQWhhUjQ?oc=5",
+      "sentiment": "neutral",
+      "score": 0,
+      "topic": "加密貨幣"
     }
   ]
 }
